@@ -5,6 +5,7 @@ import './gym.css';
 
 export default function GymTrackerDummy() {
   const [role, setRole] = useState<'LANDING' | 'LOGIN' | 'ADMIN' | 'INSTRUCTOR' | 'STUDENT'>('LANDING');
+  const [adminTab, setAdminTab] = useState<'dashboard' | 'users' | 'settings'>('dashboard');
   const [filter, setFilter] = useState('all');
 
   const stats = {
@@ -197,9 +198,9 @@ export default function GymTrackerDummy() {
             <h1>Admin Panel</h1>
           </div>
           <nav className="gym-nav">
-            <span className="gym-nav-item active">Dashboard</span>
-            <span className="gym-nav-item">Users</span>
-            <span className="gym-nav-item">Settings</span>
+            <span onClick={() => setAdminTab('dashboard')} className={`gym-nav-item ${adminTab === 'dashboard' ? 'active' : ''}`}>Dashboard</span>
+            <span onClick={() => setAdminTab('users')} className={`gym-nav-item ${adminTab === 'users' ? 'active' : ''}`}>Users</span>
+            <span onClick={() => setAdminTab('settings')} className={`gym-nav-item ${adminTab === 'settings' ? 'active' : ''}`}>Profile</span>
             <button onClick={() => setRole('LOGIN')} className="gym-nav-signout">Sign Out</button>
           </nav>
           <div className="gym-sidebar-footer">
@@ -209,6 +210,8 @@ export default function GymTrackerDummy() {
 
         <main className="gym-main">
           <div className="gym-content-wrapper">
+            {adminTab === 'dashboard' && (
+              <>
             <div className="gym-page-header">
               <h2>Welcome back, Admin!</h2>
               <p>Here is what is happening with your gym today (Static Demo)</p>
@@ -285,6 +288,111 @@ export default function GymTrackerDummy() {
                   </div>
                </div>
             </div>
+          </>
+        )}
+
+        {adminTab === 'users' && (
+          <>
+            <div className="gym-page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h2>User Management</h2>
+                <p>Manage instructors and students across the platform.</p>
+              </div>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                 <button className="gym-login-btn primary" style={{ margin: 0 }}>Add Student</button>
+                 <button className="gym-login-btn secondary" style={{ margin: 0, backgroundColor: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Add Instructor</button>
+              </div>
+            </div>
+
+            <div className="gym-card" style={{ marginBottom: '32px' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#818cf8', marginBottom: '16px' }}>Instructors (3)</h3>
+              <div style={{ overflowX: 'auto', background: '#09090b', borderRadius: '8px', border: '1px solid #27272a' }}>
+                <table style={{ width: '100%', textAlign: 'left', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                  <thead style={{ background: '#09090b', borderBottom: '1px solid #27272a', color: '#a1a1aa', textTransform: 'uppercase', fontSize: '0.75rem' }}>
+                    <tr>
+                      <th style={{ padding: '12px 24px', fontWeight: 600 }}>Name</th>
+                      <th style={{ padding: '12px 24px', fontWeight: 600 }}>Email</th>
+                      <th style={{ padding: '12px 24px', fontWeight: 600 }}>Assigned Students</th>
+                      <th style={{ padding: '12px 24px', fontWeight: 600 }}>Added On</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {topInstructors.slice(0, 3).map((ins, i) => (
+                      <tr key={i} style={{ borderBottom: '1px solid #27272a' }}>
+                        <td style={{ padding: '16px 24px', color: '#fff', fontWeight: 500 }}>{ins.name}</td>
+                        <td style={{ padding: '16px 24px', color: '#d4d4d8' }}>{ins.email}</td>
+                        <td style={{ padding: '16px 24px', color: '#d4d4d8' }}>{ins.students}</td>
+                        <td style={{ padding: '16px 24px', color: '#d4d4d8' }}>Oct {10 + i}, 2025</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="gym-card">
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#34d399', marginBottom: '16px' }}>Students (3)</h3>
+              <div style={{ overflowX: 'auto', background: '#09090b', borderRadius: '8px', border: '1px solid #27272a' }}>
+                <table style={{ width: '100%', textAlign: 'left', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                  <thead style={{ background: '#09090b', borderBottom: '1px solid #27272a', color: '#a1a1aa', textTransform: 'uppercase', fontSize: '0.75rem' }}>
+                    <tr>
+                      <th style={{ padding: '12px 24px', fontWeight: 600 }}>Name</th>
+                      <th style={{ padding: '12px 24px', fontWeight: 600 }}>Email</th>
+                      <th style={{ padding: '12px 24px', fontWeight: 600 }}>Assigned Coach</th>
+                      <th style={{ padding: '12px 24px', fontWeight: 600 }}>Added On</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[{name: 'Alex Cooper', email: 'alex@example.com', coach: 'John Doe'},
+                      {name: 'Sarah Lee', email: 'sarah@example.com', coach: 'Jane Smith'},
+                      {name: 'Tom Hardy', email: 'tom@example.com', coach: 'Mike Johnson'}
+                     ].map((stu, i) => (
+                      <tr key={i} style={{ borderBottom: i !== 2 ? '1px solid #27272a' : 'none' }}>
+                        <td style={{ padding: '16px 24px', color: '#fff', fontWeight: 500 }}>{stu.name}</td>
+                        <td style={{ padding: '16px 24px', color: '#d4d4d8' }}>{stu.email}</td>
+                        <td style={{ padding: '16px 24px', color: '#d4d4d8' }}>{stu.coach}</td>
+                        <td style={{ padding: '16px 24px', color: '#d4d4d8' }}>Feb {10 + i * 5}, 2026</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </>
+        )}
+
+        {adminTab === 'settings' && (
+          <>
+            <div className="gym-page-header">
+              <h2>Administrator Profile</h2>
+              <p>Manage your personal settings and password.</p>
+            </div>
+            
+            <div className="gym-card" style={{ maxWidth: '600px', marginBottom: '24px' }}>
+              <p style={{ color: '#a1a1aa', fontSize: '0.875rem', marginBottom: '8px' }}>Name: <span style={{ color: '#fff', fontWeight: 500, fontSize: '1rem' }}>Admin Subbag</span></p>
+              <p style={{ color: '#a1a1aa', fontSize: '0.875rem' }}>Email: <span style={{ color: '#fff', fontWeight: 500, fontSize: '1rem' }}>admin@majapahitgym.com</span></p>
+            </div>
+
+            <div className="gym-card" style={{ maxWidth: '600px' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: '16px' }}>Change Password</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div>
+                   <label style={{ display: 'block', fontSize: '0.875rem', color: '#a1a1aa', marginBottom: '8px' }}>Current Password</label>
+                   <input type="password" style={{ width: '100%', background: '#09090b', border: '1px solid #3f3f46', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: 'none' }} placeholder="••••••••" />
+                </div>
+                <div>
+                   <label style={{ display: 'block', fontSize: '0.875rem', color: '#a1a1aa', marginBottom: '8px' }}>New Password</label>
+                   <input type="password" style={{ width: '100%', background: '#09090b', border: '1px solid #3f3f46', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: 'none' }} placeholder="••••••••" />
+                </div>
+                <div>
+                   <label style={{ display: 'block', fontSize: '0.875rem', color: '#a1a1aa', marginBottom: '8px' }}>Confirm New Password</label>
+                   <input type="password" style={{ width: '100%', background: '#09090b', border: '1px solid #3f3f46', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: 'none' }} placeholder="••••••••" />
+                </div>
+                <button className="gym-login-btn secondary" style={{ margin: '8px 0 0 0', width: 'auto', alignSelf: 'flex-start', background: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Update Password</button>
+              </div>
+            </div>
+          </>
+        )}
           </div>
         </main>
       </div>
