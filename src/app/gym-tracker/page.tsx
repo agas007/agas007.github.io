@@ -6,7 +6,7 @@ import './gym.css';
 export default function GymTrackerDummy() {
   const [role, setRole] = useState<'LANDING' | 'LOGIN' | 'ADMIN' | 'INSTRUCTOR' | 'STUDENT'>('LANDING');
   const [adminTab, setAdminTab] = useState<'dashboard' | 'users' | 'settings'>('dashboard');
-  const [instructorTab, setInstructorTab] = useState<'overview' | 'students' | 'workouts' | 'profile' | 'add_student'>('overview');
+  const [instructorTab, setInstructorTab] = useState<'overview' | 'students' | 'workouts' | 'profile' | 'add_student' | 'view_student'>('overview');
   const [filter, setFilter] = useState('all');
 
   const stats = {
@@ -489,7 +489,7 @@ export default function GymTrackerDummy() {
                             <td style={{ padding: '16px 24px' }}>{stu.email}</td>
                             <td style={{ padding: '16px 24px' }}>{stu.role}</td>
                             <td style={{ padding: '16px 24px', textAlign: 'right' }}>
-                               <a href="#" onClick={(e) => e.preventDefault()} style={{ color: '#818cf8', textDecoration: 'none', fontWeight: 500 }}>View</a>
+                               <a href="#" onClick={(e) => { e.preventDefault(); setInstructorTab('view_student'); }} style={{ color: '#818cf8', textDecoration: 'none', fontWeight: 500 }}>View</a>
                             </td>
                           </tr>
                         ))}
@@ -524,6 +524,67 @@ export default function GymTrackerDummy() {
                       <button className="gym-login-btn secondary" style={{ marginTop: '8px', background: '#4f46e5', borderColor: '#4f46e5', color: '#fff', width: '100%' }}>Create Student</button>
                     </div>
                   </div>
+                </div>
+              </>
+            )}
+
+            {instructorTab === 'view_student' && (
+              <>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '32px', gap: '16px' }}>
+                   <button onClick={() => setInstructorTab('students')} style={{ background: 'none', border: 'none', color: '#a1a1aa', cursor: 'pointer', fontSize: '1rem' }}>←</button>
+                   <div>
+                     <h1 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#fff' }}>Sarah Jenkins's Profile</h1>
+                     <p style={{ color: '#a1a1aa' }}>sarah.j@example.com</p>
+                   </div>
+                </div>
+
+                <div className="gym-2col" style={{ margin: 0, marginBottom: '24px' }}>
+                  <div className="gym-card">
+                     <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '16px', color: '#fff' }}>Assigned Plans</h2>
+                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        <li style={{ background: 'rgba(255,255,255,0.05)', padding: '12px', borderRadius: '4px', border: '1px solid #3f3f46' }}>
+                           <div style={{ fontWeight: 500, color: '#818cf8' }}>Hypertrophy Phase 1</div>
+                           <div style={{ fontSize: '0.875rem', color: '#a1a1aa' }}>Focus on muscle building and progressive overload.</div>
+                        </li>
+                     </ul>
+                  </div>
+                  <div className="gym-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                     <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '16px', color: '#fff', textAlign: 'center' }}>Actions</h2>
+                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        <button className="gym-login-btn primary" style={{ margin: 0 }}>Send Attendance Reminder</button>
+                        <button className="gym-login-btn secondary" style={{ margin: 0, background: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Assign New Plan</button>
+                     </div>
+                  </div>
+                </div>
+
+                <div className="gym-card">
+                   <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '24px', color: '#fff' }}>Workout History (Progress)</h2>
+                   <div style={{ borderLeft: '2px solid #6366f1', paddingLeft: '16px', paddingBottom: '8px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                         <div>
+                            <h3 style={{ fontSize: '1.125rem', fontWeight: 700, color: '#fff' }}>Upper Body Crusher</h3>
+                            <p style={{ fontSize: '0.75rem', color: '#a1a1aa' }}>3/4/2026 - 10:00:00 AM</p>
+                         </div>
+                         <span style={{ padding: '4px 8px', fontSize: '0.75rem', borderRadius: '9999px', background: 'rgba(34,197,94,0.2)', color: '#4ade80', border: '1px solid rgba(34,197,94,0.3)' }}>COMPLETED</span>
+                      </div>
+                      <div className="gym-2col" style={{ margin: 0, gap: '16px' }}>
+                         <div style={{ background: '#09090b', padding: '12px', borderRadius: '4px', border: '1px solid #27272a' }}>
+                            <div style={{ fontWeight: 600, fontSize: '0.875rem', color: '#a5b4fc', marginBottom: '8px' }}>Lat Pulldowns</div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#a1a1aa', marginBottom: '4px' }}>
+                               <span>Set 1</span><span>45 kg x 12 reps <span style={{ color: '#71717a' }}>@ RPE 8</span></span>
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#a1a1aa' }}>
+                               <span>Set 2</span><span>50 kg x 10 reps <span style={{ color: '#71717a' }}>@ RPE 9</span></span>
+                            </div>
+                         </div>
+                         <div style={{ background: '#09090b', padding: '12px', borderRadius: '4px', border: '1px solid #27272a' }}>
+                            <div style={{ fontWeight: 600, fontSize: '0.875rem', color: '#a5b4fc', marginBottom: '8px' }}>Push Ups</div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#a1a1aa', marginBottom: '4px' }}>
+                               <span>Set 1</span><span>0 kg x 20 reps <span style={{ color: '#71717a' }}>@ RPE 7</span></span>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
                 </div>
               </>
             )}
