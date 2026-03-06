@@ -192,6 +192,9 @@
   position: fixed;
   top: 0;
   width: 100%;
+  max-width: none;
+  margin: 0;
+  display: block;
   z-index: 50;
   background: rgba(9, 9, 11, 0.8); /* zinc-950/80 */
   backdrop-filter: blur(12px);
@@ -299,6 +302,35 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
+}
+
+.gym-landing-mockup-wrapper {
+  margin-top: 64px;
+  padding: 8px;
+  border-radius: 16px;
+  background: rgba(24, 24, 27, 0.3); /* zinc-900/30 */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* ring-white/10 equivalent */
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gym-landing-mockup {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03); /* white/5 */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* shadow-2xl */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* ring-white/10 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #71717a; /* gray-500 */
+}
+
+.gym-landing-mockup span {
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .gym-landing-features {

@@ -29,7 +29,6 @@ export default function GymTrackerDummy() {
             <a href="/" className="gym-landing-logo">MAJAPAHIT<span>GYM</span></a>
             <div className="gym-landing-menu">
               <a href="#features" className="gym-landing-link">Features</a>
-              <a href="#pricing" className="gym-landing-link">Pricing</a>
               <button onClick={() => setRole('LOGIN')} className="gym-landing-btn">Sign in</button>
             </div>
           </div>
@@ -44,6 +43,11 @@ export default function GymTrackerDummy() {
               <button onClick={() => setRole('LOGIN')} className="gym-landing-btn" style={{ padding: '12px 24px', fontSize: '1rem' }}>Get Started</button>
               <a href="/" className="gym-landing-link" style={{ fontSize: '1rem' }}>Back to Portfolio →</a>
             </div>
+          </div>
+          <div className="gym-landing-mockup-wrapper">
+             <div className="gym-landing-mockup">
+                <span>Dashboard Preview</span>
+             </div>
           </div>
         </section>
 
