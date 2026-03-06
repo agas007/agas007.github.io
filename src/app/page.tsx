@@ -109,10 +109,10 @@ export default function Home() {
                       </div>
                       <div className="card-content">
                           <h3>Gym Tracker</h3>
-                          <p>A comprehensive workout tracking application built with Jamstack principles. Includes user management, exercise tracking, and real-time statistics.</p>
+                          <p>A comprehensive workout tracking application built with Next JS and Tailwind CSS. Includes user management, exercise tracking, and real-time statistics.</p>
                           <div className="tags">
-                              <span>Jamstack</span>
-                              <span>API</span>
+                              <span>Next JS</span>
+                              <span>Tailwind CSS</span>
                               <span>Node.js</span>
                               <span>Frontend</span>
                           </div>
@@ -135,8 +135,10 @@ export default function Home() {
                           <p>A comprehensive system to manage official corporate travel requests, internal approval processes, and dynamic frontend workflows.</p>
                           <div className="tags">
                               <span>Enterprise</span>
-                              <span>React</span>
-                              <span>Express</span>
+                              <span>Angular</span>
+                              <span>Node.js</span>
+                              <span>SQL</span>
+                              <span>Laravel</span>
                           </div>
                           <a href="/perjalanan-dinas" target="_blank" className="btn btn-outline" rel="noreferrer">Open Application</a>
                       </div>
