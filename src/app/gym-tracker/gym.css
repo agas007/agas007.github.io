@@ -561,6 +561,8 @@
 .gym-landing-footer {
   background-color: #09090b; /* zinc-950 */
   padding: 64px 24px 32px;
+  text-align: left;
+  border-top: none;
 }
 .gym-landing-footer-inner {
   max-width: 1280px;
