@@ -401,3 +401,220 @@
   color: #a1a1aa;
   line-height: 1.5;
 }
+
+/* Pricing Section */
+.gym-landing-pricing {
+  background-color: #09090b; /* zinc-950 */
+  padding: 96px 24px;
+}
+.gym-landing-pricing-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.gym-landing-pricing-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 64px;
+}
+.gym-landing-pricing-header h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.gym-landing-pricing-header p {
+  font-size: 1.125rem;
+  color: #a1a1aa;
+}
+
+.gym-landing-pricing-card {
+  max-width: 1024px;
+  margin: 0 auto;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  overflow: hidden;
+}
+@media(max-width: 1024px) {
+  .gym-landing-pricing-card { flex-direction: column; }
+}
+.gym-landing-pricing-left {
+  padding: 40px;
+  flex: 1;
+  background-color: transparent;
+}
+.gym-landing-pricing-left h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.gym-landing-pricing-left p {
+  font-size: 1rem;
+  color: #a1a1aa;
+  margin-bottom: 40px;
+}
+.gym-landing-pricing-included {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.gym-landing-pricing-included h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #818cf8;
+}
+.gym-landing-pricing-included .line {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(243, 244, 246, 0.1);
+}
+.gym-landing-pricing-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@media(max-width: 640px) {
+  .gym-landing-pricing-features { grid-template-columns: 1fr; }
+}
+.gym-landing-pricing-feature {
+  display: flex;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: #d4d4d8;
+}
+.gym-landing-pricing-feature svg {
+  width: 20px;
+  height: 20px;
+  color: #818cf8;
+  flex-shrink: 0;
+}
+
+.gym-landing-pricing-right {
+  padding: 8px;
+  width: 400px;
+  flex-shrink: 0;
+}
+@media(max-width: 1024px) {
+  .gym-landing-pricing-right { width: 100%; }
+}
+.gym-landing-pricing-right-inner {
+  background-color: #18181b; /* zinc-900 */
+  border-radius: 16px;
+  border: 1px solid rgba(24, 24, 27, 0.05); /* ring-inset ring-gray-900/5 */
+  padding: 40px 32px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.gym-landing-pricing-right p.pay-once {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #a1a1aa;
+}
+.gym-landing-pricing-right p.price {
+  margin: 24px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+}
+.gym-landing-pricing-right p.price .value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.05em;
+}
+.gym-landing-pricing-right p.price .currency {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #a1a1aa;
+}
+.gym-landing-pricing-right a.get-access {
+  display: block;
+  width: 100%;
+  background-color: #4f46e5;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+.gym-landing-pricing-right a.get-access:hover { background-color: #6366f1; }
+.gym-landing-pricing-right p.notes {
+  font-size: 0.75rem;
+  color: #a1a1aa;
+}
+
+/* Footer Section */
+.gym-landing-footer {
+  background-color: #09090b; /* zinc-950 */
+  padding: 64px 24px 32px;
+}
+.gym-landing-footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.gym-landing-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+}
+@media(max-width: 1024px) {
+  .gym-landing-footer-grid { grid-template-columns: 1fr; }
+}
+.gym-landing-footer-brand p {
+  font-size: 0.875rem;
+  color: #d4d4d8;
+  margin-top: 24px;
+  line-height: 1.5;
+  max-width: 300px;
+}
+.gym-landing-footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.gym-landing-footer-col h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.gym-landing-footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.gym-landing-footer-col a {
+  font-size: 0.875rem;
+  color: #d4d4d8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.gym-landing-footer-col a:hover { color: #fff; }
+
+.gym-landing-footer-bottom {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+.gym-landing-footer-bottom p {
+  font-size: 0.75rem;
+  color: #a1a1aa;
+}

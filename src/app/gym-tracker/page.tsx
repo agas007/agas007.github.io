@@ -29,6 +29,7 @@ export default function GymTrackerDummy() {
             <a href="/" className="gym-landing-logo">MAJAPAHIT<span>GYM</span></a>
             <div className="gym-landing-menu">
               <a href="#features" className="gym-landing-link">Features</a>
+              <a href="#pricing" className="gym-landing-link">Pricing</a>
               <button onClick={() => setRole('LOGIN')} className="gym-landing-btn">Sign in</button>
             </div>
           </div>
@@ -75,6 +76,96 @@ export default function GymTrackerDummy() {
              </div>
           </div>
         </section>
+
+        <section id="pricing" className="gym-landing-pricing">
+          <div className="gym-landing-pricing-inner">
+            <div className="gym-landing-pricing-header">
+              <h2>Simple no-tricks pricing</h2>
+              <p>Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.</p>
+            </div>
+            <div className="gym-landing-pricing-card">
+              <div className="gym-landing-pricing-left">
+                <h3>Gym Tracker Pro</h3>
+                <p>Perfect for growing fitness centers and independent instructors looking to scale their operations.</p>
+                <div className="gym-landing-pricing-included">
+                  <h4>What's included</h4>
+                  <div className="line"></div>
+                </div>
+                <ul className="gym-landing-pricing-features">
+                  <li className="gym-landing-pricing-feature">
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                    </svg>
+                    Infinite users & students
+                  </li>
+                  <li className="gym-landing-pricing-feature">
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                    </svg>
+                    Advanced analytics
+                  </li>
+                  <li className="gym-landing-pricing-feature">
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                    </svg>
+                    Custom workout plans
+                  </li>
+                  <li className="gym-landing-pricing-feature">
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                    </svg>
+                    Priority email support
+                  </li>
+                </ul>
+              </div>
+              <div className="gym-landing-pricing-right">
+                <div className="gym-landing-pricing-right-inner">
+                  <p className="pay-once">Pay once, own it forever</p>
+                  <p className="price">
+                     <span className="value">$49</span>
+                     <span className="currency">USD</span>
+                  </p>
+                  <a href="#" className="get-access" onClick={(e) => { e.preventDefault(); setRole('LOGIN'); }}>Get access</a>
+                  <p className="notes">Invoices and receipts available for easy company reimbursement</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="gym-landing-footer">
+          <div className="gym-landing-footer-inner">
+             <div className="gym-landing-footer-grid">
+                <div className="gym-landing-footer-brand">
+                    <a href="/" className="gym-landing-logo">MAJAPAHIT<span>GYM</span></a>
+                    <p>Making the world a better place through constructing elegant hierarchies and tracking your physical potential.</p>
+                </div>
+                <div className="gym-landing-footer-links">
+                   <div className="gym-landing-footer-col">
+                      <h3>Solutions</h3>
+                      <ul>
+                         <li><a href="#">Tracking</a></li>
+                         <li><a href="#">Analytics</a></li>
+                         <li><a href="#">Coaching</a></li>
+                         <li><a href="#">Insights</a></li>
+                      </ul>
+                   </div>
+                   <div className="gym-landing-footer-col">
+                      <h3>Support</h3>
+                      <ul>
+                         <li><a href="#">Pricing</a></li>
+                         <li><a href="#">Documentation</a></li>
+                         <li><a href="#">Guides</a></li>
+                         <li><a href="#">API Status</a></li>
+                      </ul>
+                   </div>
+                </div>
+             </div>
+             <div className="gym-landing-footer-bottom">
+                <p>© 2026 Majapahit Gym, Inc. All rights reserved.</p>
+             </div>
+          </div>
+        </footer>
       </div>
     );
   }
