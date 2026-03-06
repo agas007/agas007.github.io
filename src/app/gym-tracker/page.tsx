@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import './gym.css';
 
 export default function GymTrackerDummy() {
-  const [role, setRole] = useState<'LOGIN' | 'ADMIN' | 'INSTRUCTOR' | 'STUDENT'>('LOGIN');
+  const [role, setRole] = useState<'LANDING' | 'LOGIN' | 'ADMIN' | 'INSTRUCTOR' | 'STUDENT'>('LANDING');
   const [filter, setFilter] = useState('all');
 
   const stats = {
@@ -20,6 +20,60 @@ export default function GymTrackerDummy() {
     { id: 4, name: 'Emily Davis', email: 'emily@example.com', students: 189 },
     { id: 5, name: 'Chris Wilson', email: 'chris@example.com', students: 120 },
   ];
+
+  if (role === 'LANDING') {
+    return (
+      <div className="gym-landing-container">
+        <nav className="gym-landing-nav">
+          <div className="gym-landing-nav-inner">
+            <a href="/" className="gym-landing-logo">MAJAPAHIT<span>GYM</span></a>
+            <div className="gym-landing-menu">
+              <a href="#features" className="gym-landing-link">Features</a>
+              <a href="#pricing" className="gym-landing-link">Pricing</a>
+              <button onClick={() => setRole('LOGIN')} className="gym-landing-btn">Sign in</button>
+            </div>
+          </div>
+        </nav>
+
+        <section className="gym-landing-hero">
+          <div className="gym-landing-hero-bg"></div>
+          <div className="gym-landing-hero-content">
+            <h1>Track Your Workout.<br/><span>Achieve Your Goals.</span></h1>
+            <p>The ultimate fitness tracking platform for gym owners, instructors, and students. Manage your progress seamlessly.</p>
+            <div className="gym-landing-hero-actions">
+              <button onClick={() => setRole('LOGIN')} className="gym-landing-btn" style={{ padding: '12px 24px', fontSize: '1rem' }}>Get Started</button>
+              <a href="/" className="gym-landing-link" style={{ fontSize: '1rem' }}>Back to Portfolio →</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" className="gym-landing-features">
+          <div className="gym-landing-features-header">
+            <h2>Features</h2>
+            <h3>Everything you need to succeed</h3>
+            <p>Comprehensive tools designed for all user roles within a modern gym environment.</p>
+          </div>
+          <div className="gym-landing-features-grid">
+             <div className="gym-landing-feature">
+                <div className="gym-landing-feature-icon">👑</div>
+                <h4>Admin Dashboard</h4>
+                <p>Complete overview of your gym's performance. Manage users, instructors, and track platform-wide statistics effortlessly.</p>
+             </div>
+             <div className="gym-landing-feature">
+                <div className="gym-landing-feature-icon">💪</div>
+                <h4>Instructor Tools</h4>
+                <p>Create and assign personalized workout plans. Monitor student progress, attendance, and provide targeted feedback.</p>
+             </div>
+             <div className="gym-landing-feature">
+                <div className="gym-landing-feature-icon">🎯</div>
+                <h4>Student App</h4>
+                <p>Interactive mobile-first interface for students to follow training plans, log workouts, and track their fitness journey.</p>
+             </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   if (role === 'LOGIN') {
     return (
