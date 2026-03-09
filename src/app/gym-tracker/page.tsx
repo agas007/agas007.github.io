@@ -5,7 +5,7 @@ import './gym.css';
 
 export default function GymTrackerDummy() {
   const [role, setRole] = useState<'LANDING' | 'LOGIN' | 'ADMIN' | 'INSTRUCTOR' | 'STUDENT'>('LANDING');
-  const [adminTab, setAdminTab] = useState<'dashboard' | 'users' | 'settings'>('dashboard');
+  const [adminTab, setAdminTab] = useState<'dashboard' | 'users' | 'settings' | 'add_student' | 'add_instructor'>('dashboard');
   const [instructorTab, setInstructorTab] = useState<'overview' | 'students' | 'workouts' | 'profile' | 'add_student' | 'view_student'>('overview');
   const [filter, setFilter] = useState('all');
 
@@ -300,8 +300,8 @@ export default function GymTrackerDummy() {
                 <p>Manage instructors and students across the platform.</p>
               </div>
               <div style={{ display: 'flex', gap: '12px' }}>
-                 <button className="gym-login-btn primary" style={{ margin: 0 }}>Add Student</button>
-                 <button className="gym-login-btn secondary" style={{ margin: 0, backgroundColor: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Add Instructor</button>
+                 <button onClick={() => setAdminTab('add_student')} className="gym-login-btn primary" style={{ margin: 0 }}>Add Student</button>
+                 <button onClick={() => setAdminTab('add_instructor')} className="gym-login-btn secondary" style={{ margin: 0, backgroundColor: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Add Instructor</button>
               </div>
             </div>
 
@@ -390,6 +390,70 @@ export default function GymTrackerDummy() {
                    <input type="password" style={{ width: '100%', background: '#09090b', border: '1px solid #3f3f46', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: 'none' }} placeholder="••••••••" />
                 </div>
                 <button className="gym-login-btn secondary" style={{ margin: '8px 0 0 0', width: 'auto', alignSelf: 'flex-start', background: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Update Password</button>
+              </div>
+            </div>
+          </>
+        )}
+
+        {adminTab === 'add_student' && (
+          <>
+            <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '24px', gap: '16px' }}>
+                 <button onClick={() => setAdminTab('users')} style={{ background: 'none', border: 'none', color: '#a1a1aa', cursor: 'pointer', fontSize: '1rem' }}>←</button>
+                 <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff' }}>Add New Student</h2>
+              </div>
+              <div className="gym-card" style={{ padding: '24px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#d4d4d8', marginBottom: '8px' }}>Full Name</label>
+                    <input type="text" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: '1px solid rgba(255,255,255,0.1)' }} />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#d4d4d8', marginBottom: '8px' }}>Email address</label>
+                    <input type="email" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: '1px solid rgba(255,255,255,0.1)' }} />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#d4d4d8', marginBottom: '8px' }}>Temp Password</label>
+                    <input type="password" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: '1px solid rgba(255,255,255,0.1)' }} />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#d4d4d8', marginBottom: '8px' }}>Assign Coach (Optional)</label>
+                    <select style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: '1px solid rgba(255,255,255,0.1)' }}>
+                       <option value="" style={{ color: '#000' }}>None</option>
+                       <option value="1" style={{ color: '#000' }}>John Doe</option>
+                       <option value="2" style={{ color: '#000' }}>Jane Smith</option>
+                    </select>
+                  </div>
+                  <button className="gym-login-btn secondary" style={{ marginTop: '8px', background: '#4f46e5', borderColor: '#4f46e5', color: '#fff', width: '100%' }}>Create Student</button>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+
+        {adminTab === 'add_instructor' && (
+          <>
+            <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '24px', gap: '16px' }}>
+                 <button onClick={() => setAdminTab('users')} style={{ background: 'none', border: 'none', color: '#a1a1aa', cursor: 'pointer', fontSize: '1rem' }}>←</button>
+                 <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff' }}>Add New Instructor</h2>
+              </div>
+              <div className="gym-card" style={{ padding: '24px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#d4d4d8', marginBottom: '8px' }}>Full Name</label>
+                    <input type="text" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: '1px solid rgba(255,255,255,0.1)' }} />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#d4d4d8', marginBottom: '8px' }}>Email address</label>
+                    <input type="email" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: '1px solid rgba(255,255,255,0.1)' }} />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#d4d4d8', marginBottom: '8px' }}>Temp Password</label>
+                    <input type="password" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: '1px solid rgba(255,255,255,0.1)' }} />
+                  </div>
+                  <button className="gym-login-btn secondary" style={{ marginTop: '8px', background: '#4f46e5', borderColor: '#4f46e5', color: '#fff', width: '100%' }}>Create Instructor</button>
+                </div>
               </div>
             </div>
           </>
