@@ -156,7 +156,7 @@ export default function Home() {
       </main>
 
       <footer>
-          <p>&copy; 2026 Agas. Built with ❤️ and Modern Web Technologies.</p>
+          <p>&copy; 2026 Agas. Built with ❤️</p>
       </footer>
     </>
   );

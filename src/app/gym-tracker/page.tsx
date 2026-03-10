@@ -6,7 +6,7 @@ import './gym.css';
 export default function GymTrackerDummy() {
   const [role, setRole] = useState<'LANDING' | 'LOGIN' | 'ADMIN' | 'INSTRUCTOR' | 'STUDENT'>('LANDING');
   const [adminTab, setAdminTab] = useState<'dashboard' | 'users' | 'settings' | 'add_student' | 'add_instructor'>('dashboard');
-  const [instructorTab, setInstructorTab] = useState<'overview' | 'students' | 'workouts' | 'profile' | 'add_student' | 'view_student'>('overview');
+  const [instructorTab, setInstructorTab] = useState<'overview' | 'students' | 'workouts' | 'profile' | 'add_student' | 'view_student' | 'assign_plan'>('overview');
   const [filter, setFilter] = useState('all');
 
   const stats = {
@@ -616,7 +616,7 @@ export default function GymTrackerDummy() {
                      <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '16px', color: '#fff', textAlign: 'center' }}>Actions</h2>
                      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                         <button className="gym-login-btn primary" style={{ margin: 0 }}>Send Attendance Reminder</button>
-                        <button className="gym-login-btn secondary" style={{ margin: 0, background: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Assign New Plan</button>
+                        <button onClick={() => setInstructorTab('assign_plan')} className="gym-login-btn secondary" style={{ margin: 0, background: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Assign New Plan</button>
                      </div>
                   </div>
                 </div>
@@ -652,7 +652,104 @@ export default function GymTrackerDummy() {
                 </div>
               </>
             )}
-            
+
+            {instructorTab === 'assign_plan' && (
+              <>
+                <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '24px', gap: '16px' }}>
+                     <button onClick={() => setInstructorTab('view_student')} style={{ background: 'none', border: 'none', color: '#a1a1aa', cursor: 'pointer', fontSize: '1rem' }}>←</button>
+                     <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff' }}>Assign Plan to Sarah Jenkins</h2>
+                  </div>
+                  <div className="gym-card" style={{ padding: '24px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                      <div>
+                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#d4d4d8', marginBottom: '8px' }}>Select Plan</label>
+                        <select style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: '1px solid rgba(255,255,255,0.1)' }}>
+                           <option value="" disabled style={{ color: '#000' }}>Choose a plan...</option>
+                           <option value="1" style={{ color: '#000' }}>Hypertrophy Phase 1</option>
+                           <option value="2" style={{ color: '#000' }}>Fat Loss Plan</option>
+                        </select>
+                      </div>
+                      <button className="gym-login-btn secondary" style={{ marginTop: '8px', background: '#4f46e5', borderColor: '#4f46e5', color: '#fff', width: '100%' }}>Assign Plan</button>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {instructorTab === 'workouts' && (
+              <>
+                <div className="gym-page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div>
+                    <h2>Workout Plans</h2>
+                    <p>Create and manage workout templates for your students.</p>
+                  </div>
+                  <div>
+                     <button className="gym-login-btn secondary" style={{ margin: 0, backgroundColor: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Create Plan</button>
+                  </div>
+                </div>
+
+                <div className="gym-2col" style={{ margin: 0, gap: '24px' }}>
+                  <div className="gym-card" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                     <div style={{ padding: '20px', flex: 1 }}>
+                        <h3 style={{ fontSize: '1.125rem', fontWeight: 500, color: '#fff' }}>Hypertrophy Phase 1</h3>
+                        <p style={{ fontSize: '0.875rem', color: '#a1a1aa', marginTop: '8px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>Focus on muscle building and progressive overload.</p>
+                        <div style={{ marginTop: '16px' }}>
+                           <span style={{ padding: '4px 8px', fontSize: '0.75rem', borderRadius: '6px', background: '#27272a', color: '#d4d4d8', border: '1px solid #3f3f46', fontWeight: 500 }}>3 Routines</span>
+                        </div>
+                     </div>
+                     <div style={{ background: 'rgba(39,39,42,0.5)', padding: '12px 20px' }}>
+                        <a href="#" onClick={(e) => e.preventDefault()} style={{ color: '#818cf8', fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none' }}>Manage Plan</a>
+                     </div>
+                  </div>
+                  <div className="gym-card" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                     <div style={{ padding: '20px', flex: 1 }}>
+                        <h3 style={{ fontSize: '1.125rem', fontWeight: 500, color: '#fff' }}>Fat Loss Plan</h3>
+                        <p style={{ fontSize: '0.875rem', color: '#a1a1aa', marginTop: '8px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>Focus on high intensity circuits and calorie burning.</p>
+                        <div style={{ marginTop: '16px' }}>
+                           <span style={{ padding: '4px 8px', fontSize: '0.75rem', borderRadius: '6px', background: '#27272a', color: '#d4d4d8', border: '1px solid #3f3f46', fontWeight: 500 }}>2 Routines</span>
+                        </div>
+                     </div>
+                     <div style={{ background: 'rgba(39,39,42,0.5)', padding: '12px 20px' }}>
+                        <a href="#" onClick={(e) => e.preventDefault()} style={{ color: '#818cf8', fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none' }}>Manage Plan</a>
+                     </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {instructorTab === 'profile' && (
+              <>
+                <div className="gym-page-header">
+                  <h2>Instructor Profile</h2>
+                </div>
+                
+                <div className="gym-card" style={{ maxWidth: '600px', marginBottom: '24px' }}>
+                  <p style={{ color: '#a1a1aa', fontSize: '0.875rem', marginBottom: '8px' }}>Name: <span style={{ color: '#fff', fontWeight: 500, fontSize: '1rem' }}>Instructor Utama</span></p>
+                  <p style={{ color: '#a1a1aa', fontSize: '0.875rem' }}>Email: <span style={{ color: '#fff', fontWeight: 500, fontSize: '1rem' }}>instructor@majapahitgym.com</span></p>
+                </div>
+
+                <div className="gym-card" style={{ maxWidth: '600px' }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: '16px' }}>Change Password</h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div>
+                       <label style={{ display: 'block', fontSize: '0.875rem', color: '#a1a1aa', marginBottom: '8px' }}>Current Password</label>
+                       <input type="password" style={{ width: '100%', background: '#09090b', border: '1px solid #3f3f46', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: 'none' }} placeholder="••••••••" />
+                    </div>
+                    <div>
+                       <label style={{ display: 'block', fontSize: '0.875rem', color: '#a1a1aa', marginBottom: '8px' }}>New Password</label>
+                       <input type="password" style={{ width: '100%', background: '#09090b', border: '1px solid #3f3f46', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: 'none' }} placeholder="••••••••" />
+                    </div>
+                    <div>
+                       <label style={{ display: 'block', fontSize: '0.875rem', color: '#a1a1aa', marginBottom: '8px' }}>Confirm New Password</label>
+                       <input type="password" style={{ width: '100%', background: '#09090b', border: '1px solid #3f3f46', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: 'none' }} placeholder="••••••••" />
+                    </div>
+                    <button className="gym-login-btn secondary" style={{ margin: '8px 0 0 0', width: 'auto', alignSelf: 'flex-start', background: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Update Password</button>
+                  </div>
+                </div>
+              </>
+            )}
+             
           </div>
         </main>
       </div>
