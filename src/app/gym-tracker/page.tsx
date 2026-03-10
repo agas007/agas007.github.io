@@ -6,7 +6,7 @@ import './gym.css';
 export default function GymTrackerDummy() {
   const [role, setRole] = useState<'LANDING' | 'LOGIN' | 'ADMIN' | 'INSTRUCTOR' | 'STUDENT'>('LANDING');
   const [adminTab, setAdminTab] = useState<'dashboard' | 'users' | 'settings' | 'add_student' | 'add_instructor'>('dashboard');
-  const [instructorTab, setInstructorTab] = useState<'overview' | 'students' | 'workouts' | 'profile' | 'add_student' | 'view_student' | 'assign_plan'>('overview');
+  const [instructorTab, setInstructorTab] = useState<'overview' | 'students' | 'workouts' | 'profile' | 'add_student' | 'view_student' | 'assign_plan' | 'create_plan' | 'manage_plan'>('overview');
   const [filter, setFilter] = useState('all');
 
   const stats = {
@@ -685,7 +685,7 @@ export default function GymTrackerDummy() {
                     <p>Create and manage workout templates for your students.</p>
                   </div>
                   <div>
-                     <button className="gym-login-btn secondary" style={{ margin: 0, backgroundColor: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Create Plan</button>
+                     <button onClick={() => setInstructorTab('create_plan')} className="gym-login-btn secondary" style={{ margin: 0, backgroundColor: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Create Plan</button>
                   </div>
                 </div>
 
@@ -699,7 +699,7 @@ export default function GymTrackerDummy() {
                         </div>
                      </div>
                      <div style={{ background: 'rgba(39,39,42,0.5)', padding: '12px 20px' }}>
-                        <a href="#" onClick={(e) => e.preventDefault()} style={{ color: '#818cf8', fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none' }}>Manage Plan</a>
+                        <a href="#" onClick={(e) => { e.preventDefault(); setInstructorTab('manage_plan'); }} style={{ color: '#818cf8', fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none' }}>Manage Plan</a>
                      </div>
                   </div>
                   <div className="gym-card" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
@@ -711,9 +711,92 @@ export default function GymTrackerDummy() {
                         </div>
                      </div>
                      <div style={{ background: 'rgba(39,39,42,0.5)', padding: '12px 20px' }}>
-                        <a href="#" onClick={(e) => e.preventDefault()} style={{ color: '#818cf8', fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none' }}>Manage Plan</a>
+                        <a href="#" onClick={(e) => { e.preventDefault(); setInstructorTab('manage_plan'); }} style={{ color: '#818cf8', fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none' }}>Manage Plan</a>
                      </div>
                   </div>
+                </div>
+              </>
+            )}
+
+            {instructorTab === 'create_plan' && (
+              <>
+                <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '24px', gap: '16px' }}>
+                     <button onClick={() => setInstructorTab('workouts')} style={{ background: 'none', border: 'none', color: '#a1a1aa', cursor: 'pointer', fontSize: '1rem' }}>←</button>
+                     <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff' }}>Create New Workout Plan</h2>
+                  </div>
+                  <div className="gym-card" style={{ padding: '24px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                      <div>
+                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#d4d4d8', marginBottom: '8px' }}>Plan Name</label>
+                        <input type="text" placeholder="e.g. 12-Week Hypertrophy" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: '1px solid rgba(255,255,255,0.1)' }} />
+                      </div>
+                      <div>
+                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#d4d4d8', marginBottom: '8px' }}>Description</label>
+                        <textarea rows={3} style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: 'none', borderRadius: '6px', padding: '10px 12px', color: '#fff', outline: '1px solid rgba(255,255,255,0.1)' }} />
+                      </div>
+                      <button className="gym-login-btn secondary" style={{ marginTop: '8px', background: '#4f46e5', borderColor: '#4f46e5', color: '#fff', width: '100%' }}>Create Plan</button>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {instructorTab === 'manage_plan' && (
+              <>
+                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '32px' }}>
+                  <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                     <button onClick={() => setInstructorTab('workouts')} style={{ background: 'none', border: 'none', color: '#a1a1aa', cursor: 'pointer', fontSize: '1rem', marginTop: '6px' }}>←</button>
+                     <div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                           <h1 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#fff' }}>Hypertrophy Phase 1</h1>
+                           <span style={{ padding: '4px 8px', fontSize: '0.75rem', borderRadius: '6px', background: 'rgba(99,102,241,0.1)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.3)', fontWeight: 500 }}>Assigned to: Sarah Jenkins, Alex M.</span>
+                        </div>
+                        <p style={{ color: '#a1a1aa', marginTop: '8px' }}>Focus on muscle building and progressive overload.</p>
+                     </div>
+                  </div>
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                     <button className="gym-login-btn primary" style={{ margin: 0, padding: '8px 16px', fontSize: '0.875rem', background: '#27272a', border: '1px solid #3f3f46', color: '#fff' }}>Assign to Student</button>
+                     <button className="gym-login-btn secondary" style={{ margin: 0, padding: '8px 16px', fontSize: '0.875rem', background: '#4f46e5', borderColor: '#4f46e5', color: '#fff' }}>Add Routine</button>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                   <div style={{ background: '#09090b', borderRadius: '8px', border: '1px solid #27272a', overflow: 'hidden' }}>
+                      <div style={{ padding: '16px 24px', background: 'rgba(39,39,42,0.5)', borderBottom: '1px solid #27272a', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                         <h3 style={{ fontSize: '1.125rem', fontWeight: 600, color: '#fff' }}>Push Day</h3>
+                         <a href="#" onClick={(e) => e.preventDefault()} style={{ color: '#818cf8', fontSize: '0.875rem', textDecoration: 'none' }}>+ Add Exercise</a>
+                      </div>
+                      <div style={{ padding: '24px' }}>
+                         <table style={{ width: '100%', textAlign: 'left', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                            <thead style={{ color: '#a1a1aa', textTransform: 'uppercase', fontSize: '0.75rem' }}>
+                               <tr>
+                                  <th style={{ paddingBottom: '8px', fontWeight: 500 }}>Exercise</th>
+                                  <th style={{ paddingBottom: '8px', fontWeight: 500 }}>Sets</th>
+                                  <th style={{ paddingBottom: '8px', fontWeight: 500 }}>Reps</th>
+                                  <th style={{ paddingBottom: '8px', fontWeight: 500 }}>RPE</th>
+                                  <th style={{ paddingBottom: '8px', fontWeight: 500 }}>Rest</th>
+                               </tr>
+                            </thead>
+                            <tbody style={{ borderTop: '1px solid #27272a' }}>
+                               <tr>
+                                  <td style={{ paddingTop: '8px', paddingBottom: '8px', color: '#d4d4d8' }}>Bench Press</td>
+                                  <td style={{ paddingTop: '8px', paddingBottom: '8px', color: '#a1a1aa' }}>4</td>
+                                  <td style={{ paddingTop: '8px', paddingBottom: '8px', color: '#a1a1aa' }}>8-10</td>
+                                  <td style={{ paddingTop: '8px', paddingBottom: '8px', color: '#a1a1aa' }}>8</td>
+                                  <td style={{ paddingTop: '8px', paddingBottom: '8px', color: '#a1a1aa' }}>90s</td>
+                               </tr>
+                               <tr>
+                                  <td style={{ paddingTop: '8px', paddingBottom: '8px', color: '#d4d4d8' }}>Overhead Press</td>
+                                  <td style={{ paddingTop: '8px', paddingBottom: '8px', color: '#a1a1aa' }}>3</td>
+                                  <td style={{ paddingTop: '8px', paddingBottom: '8px', color: '#a1a1aa' }}>10-12</td>
+                                  <td style={{ paddingTop: '8px', paddingBottom: '8px', color: '#a1a1aa' }}>8</td>
+                                  <td style={{ paddingTop: '8px', paddingBottom: '8px', color: '#a1a1aa' }}>60s</td>
+                               </tr>
+                            </tbody>
+                         </table>
+                      </div>
+                   </div>
                 </div>
               </>
             )}
