@@ -7,6 +7,7 @@ export default function PerjalananDinasDummy() {
   const [activeTab, setActiveTab] = useState('requests');
   const [selectedRequest, setSelectedRequest] = useState<any>(null);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [currentView, setCurrentView] = useState('dashboard');
 
   const requests = [
     { id: 'PD-2026-001', name: 'Budi Santoso', destination: 'Jakarta', date: '10 Mar 2026', status: 'Approved' },
@@ -30,16 +31,16 @@ export default function PerjalananDinasDummy() {
            <span>Pedal</span>
         </div>
         <nav className="pd-nav">
-            <a href="#" className="pd-nav-item active">
+            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('dashboard'); setSelectedRequest(null); }} className={`pd-nav-item ${currentView === 'dashboard' ? 'active' : ''}`}>
                 <span className="icon">📊</span> Dashboard
             </a>
-            <a href="#" className="pd-nav-item">
+            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('pengajuan'); setSelectedRequest(null); }} className={`pd-nav-item ${currentView === 'pengajuan' ? 'active' : ''}`}>
                 <span className="icon">📝</span> Pengajuan
             </a>
-             <a href="#" className="pd-nav-item">
+             <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('approval'); setSelectedRequest(null); }} className={`pd-nav-item ${currentView === 'approval' ? 'active' : ''}`}>
                 <span className="icon">✓</span> Approval
             </a>
-            <a href="#" className="pd-nav-item">
+            <a href="#" onClick={(e) => e.preventDefault()} className="pd-nav-item">
                 <span className="icon">📄</span> Report
             </a>
         </nav>
@@ -236,6 +237,155 @@ export default function PerjalananDinasDummy() {
                      </div>
                   </div>
                </div>
+            </div>
+          )}
+
+          {currentView === 'pengajuan' && (
+            <div style={{ animation: 'slide-up 0.4s ease-out', maxWidth: '800px', margin: '0 auto' }}>
+              <div style={{ marginBottom: '24px' }}>
+                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('dashboard'); }} style={{ color: '#2563eb', textDecoration: 'none', fontSize: '0.875rem', fontWeight: 600, display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '8px' }}>
+                  ← Kembali ke Daftar
+                </a>
+                <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0f172a' }}>Buat Perjalanan Dinas Baru</h1>
+              </div>
+
+              <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)' }}>
+                <form action="#" onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                  
+                  {/* Destinasi */}
+                  <div>
+                    <h2 style={{ fontSize: '1.125rem', fontWeight: 600, color: '#0f172a', borderBottom: '1px solid #e2e8f0', paddingBottom: '8px', marginBottom: '16px' }}>Destinasi</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Provinsi</label>
+                        <select style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', background: '#fff', color: '#0f172a' }}>
+                          <option value="">Pilih Provinsi</option>
+                          <option value="1">DKI Jakarta</option>
+                          <option value="2">Jawa Barat</option>
+                          <option value="3">Jawa Timur</option>
+                        </select>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Kab./Kota</label>
+                        <select style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', background: '#fff', color: '#0f172a' }}>
+                          <option value="">Pilih Kab./Kota</option>
+                          <option value="1">Jakarta Pusat</option>
+                          <option value="2">Bandung</option>
+                          <option value="3">Surabaya</option>
+                        </select>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Lokus / Tempat Tujuan</label>
+                        <input type="text" placeholder="Contoh: BKN" style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', color: '#0f172a' }} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Purpose, Anggaran & PPK */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Nama Kegiatan</label>
+                      <input type="text" placeholder="Contoh: Studi Banding" style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', color: '#0f172a' }} />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Asal Anggaran</label>
+                      <select style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', background: '#fff', color: '#0f172a' }}>
+                        <option value="">Pilih Asal Anggaran</option>
+                        <option value="1">DIPA 2026</option>
+                      </select>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>PPK</label>
+                      <select style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', background: '#fff', color: '#0f172a' }}>
+                        <option value="">Pilih PPK</option>
+                        <option value="1">Joko Susilo</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Waktu Pelaksanaan */}
+                  <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px' }}>
+                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                        <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: '#dbeafe', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2563eb' }}>📅</div>
+                        <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', margin: 0 }}>Waktu Pelaksanaan</h3>
+                     </div>
+                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                          <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Tanggal Berangkat</label>
+                          <input type="date" style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', color: '#0f172a', background: '#fff' }} />
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                          <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Tanggal Pulang</label>
+                          <input type="date" style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', color: '#0f172a', background: '#fff' }} />
+                        </div>
+                     </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', borderTop: '1px solid #e2e8f0', paddingTop: '24px' }}>
+                    <button type="button" onClick={() => setCurrentView('dashboard')} style={{ padding: '8px 16px', borderRadius: '6px', border: '1px solid #cbd5e1', background: '#fff', color: '#334155', fontWeight: 500, cursor: 'pointer' }}>Batal</button>
+                    <button type="button" onClick={() => setCurrentView('dashboard')} style={{ padding: '8px 16px', borderRadius: '6px', border: 'none', background: '#2563eb', color: '#fff', fontWeight: 500, cursor: 'pointer' }}>Kirim Pengajuan</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
+
+          {currentView === 'approval' && (
+            <div style={{ animation: 'slide-up 0.4s ease-out' }}>
+              <div style={{ marginBottom: '24px' }}>
+                <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0f172a' }}>Approval Perjalanan Dinas</h1>
+                <p style={{ color: '#64748b', fontSize: '0.875rem' }}>Kelola persetujuan pengajuan perjalanan dinas</p>
+              </div>
+
+              <div style={{ background: '#fff', borderRadius: '16px', boxShadow: '0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06)', overflow: 'hidden' }}>
+                <div style={{ overflowX: 'auto' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+                    <thead style={{ background: '#f8fafc' }}>
+                      <tr>
+                        <th style={{ padding: '12px 24px', fontSize: '11px', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Tujuan</th>
+                        <th style={{ padding: '12px 24px', fontSize: '11px', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Anggaran</th>
+                        <th style={{ padding: '12px 24px', fontSize: '11px', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Kegiatan</th>
+                        <th style={{ padding: '12px 24px', fontSize: '11px', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Pemohon</th>
+                        <th style={{ padding: '12px 24px', fontSize: '11px', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Tanggal</th>
+                        <th style={{ padding: '12px 24px', fontSize: '11px', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center' }}>Status</th>
+                        <th style={{ padding: '12px 24px', fontSize: '11px', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'right' }}>Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody style={{ borderTop: '1px solid #f1f5f9' }}>
+                       {requests.filter(req => req.status === 'Pending').map((req, i) => (
+                          <tr key={i} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                             <td style={{ padding: '16px 24px' }}>
+                                <div style={{ fontSize: '14px', fontWeight: 700, color: '#0f172a' }}>{req.destination}</div>
+                                <div style={{ fontSize: '12px', color: '#94a3b8' }}>Indonesia</div>
+                             </td>
+                             <td style={{ padding: '16px 24px' }}>
+                                <span style={{ padding: '4px 8px', borderRadius: '4px', background: '#f1f5f9', fontSize: '10px', fontWeight: 700, color: '#475569', textTransform: 'uppercase' }}>DIPA 2026</span>
+                             </td>
+                             <td style={{ padding: '16px 24px' }}>
+                                <div style={{ fontSize: '14px', color: '#0f172a' }}>Rapat Koordinasi Nasional</div>
+                             </td>
+                             <td style={{ padding: '16px 24px' }}>
+                                <span style={{ padding: '2px 8px', borderRadius: '4px', fontSize: '10px', fontWeight: 700, background: '#dbeafe', color: '#1d4ed8', whiteSpace: 'nowrap' }}>{req.name}</span>
+                             </td>
+                             <td style={{ padding: '16px 24px', whiteSpace: 'nowrap' }}>
+                                <div style={{ fontSize: '14px', color: '#64748b' }}>{req.date}</div>
+                             </td>
+                             <td style={{ padding: '16px 24px', textAlign: 'center' }}>
+                                <span className={`pd-badge ${req.status.toLowerCase()}`}>{req.status}</span>
+                             </td>
+                             <td style={{ padding: '16px 24px', textAlign: 'right' }}>
+                                <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
+                                   <button style={{ background: '#2563eb', color: '#fff', border: 'none', padding: '6px 12px', borderRadius: '6px', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', cursor: 'pointer' }}>Setujui</button>
+                                   <button onClick={() => { setSelectedRequest(req); setCurrentView('dashboard'); }} style={{ background: '#f1f5f9', color: '#475569', border: 'none', padding: '6px 12px', borderRadius: '6px', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', cursor: 'pointer' }}>Detail</button>
+                                </div>
+                             </td>
+                          </tr>
+                       ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           )}
         </div>
