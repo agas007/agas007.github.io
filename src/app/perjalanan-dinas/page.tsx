@@ -40,7 +40,7 @@ export default function PerjalananDinasDummy() {
              <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('approval'); setSelectedRequest(null); }} className={`pd-nav-item ${currentView === 'approval' ? 'active' : ''}`}>
                 <span className="icon">✓</span> Approval
             </a>
-            <a href="#" onClick={(e) => e.preventDefault()} className="pd-nav-item">
+            <a href="#" onClick={(e) => { e.preventDefault(); setCurrentView('report'); setSelectedRequest(null); }} className={`pd-nav-item ${currentView === 'report' ? 'active' : ''}`}>
                 <span className="icon">📄</span> Report
             </a>
         </nav>
@@ -386,6 +386,77 @@ export default function PerjalananDinasDummy() {
                        ))}
                     </tbody>
                   </table>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {currentView === 'report' && (
+            <div style={{ animation: 'slide-up 0.4s ease-out', maxWidth: '800px', margin: '0 auto' }}>
+              <div style={{ marginBottom: '24px' }}>
+                <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0f172a' }}>Report Perjalanan Dinas</h1>
+                <p style={{ color: '#64748b', fontSize: '0.875rem' }}>Filter dan unduh laporan perjalanan dinas dalam format Excel</p>
+              </div>
+
+              <div style={{ background: '#fff', padding: '32px', borderRadius: '16px', boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)' }}>
+                <form action="#" onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                  
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Kata Kunci</label>
+                      <input type="text" placeholder="Kegiatan, tujuan, atau alasan..." style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', color: '#0f172a' }} />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Nama Peserta</label>
+                      <input type="text" placeholder="Cari berdasarkan nama..." style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', color: '#0f172a' }} />
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Status</label>
+                      <select style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', background: '#fff', color: '#0f172a' }}>
+                        <option value="">Semua Status</option>
+                        <option value="pending">Menunggu</option>
+                        <option value="approved">Disetujui</option>
+                        <option value="rejected">Ditolak</option>
+                      </select>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Dari Tanggal</label>
+                      <input type="date" style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', color: '#0f172a', background: '#fff' }} />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <label style={{ fontSize: '0.875rem', fontWeight: 500, color: '#334155' }}>Sampai Tanggal</label>
+                      <input type="date" style={{ width: '100%', padding: '8px 12px', border: '1px solid #cbd5e1', borderRadius: '6px', outline: 'none', color: '#0f172a', background: '#fff' }} />
+                    </div>
+                  </div>
+
+                  <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '16px', marginTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                     <button type="button" style={{ 
+                        color: '#64748b', fontSize: '0.875rem', fontWeight: 600, border: 'none', background: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' 
+                     }}>
+                        ↻ Reset Semua Filter
+                     </button>
+
+                     <button type="button" style={{
+                        background: '#2563eb', color: '#fff', border: 'none', borderRadius: '12px', padding: '12px 24px', fontSize: '1rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.1), 0 2px 4px -1px rgba(37, 99, 235, 0.06)'
+                     }}>
+                        ⬇ Unduh Laporan Excel
+                     </button>
+                  </div>
+                </form>
+              </div>
+
+              <div style={{ background: '#eff6ff', border: '1px solid #dbeafe', borderRadius: '16px', padding: '24px', marginTop: '32px', display: 'flex', gap: '16px' }}>
+                <div style={{ width: '48px', height: '48px', background: '#fff', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2563eb', flexShrink: 0, boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)' }}>
+                  💡
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '0.875rem', fontWeight: 700, color: '#1e3a8a', marginBottom: '4px', margin: 0 }}>Tips Laporan</h4>
+                  <p style={{ fontSize: '0.875rem', color: '#1d4ed8', lineHeight: '1.6', margin: 0 }}>
+                    Anda dapat memfilter data berdasarkan rentang tanggal tertentu atau status perjalanan untuk mendapatkan laporan yang lebih spesifik. Biarkan filter kosong untuk mengunduh seluruh data perjalanan Anda.
+                  </p>
                 </div>
               </div>
             </div>
