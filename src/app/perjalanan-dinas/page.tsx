@@ -97,7 +97,8 @@ export default function PerjalananDinasDummy() {
         </header>
 
         <div className="pd-content">
-          {!selectedRequest ? (
+          {currentView === 'dashboard' && (
+            !selectedRequest ? (
             <>
               <div className="pd-page-header">
                 <h1>Dashboard</h1>
@@ -238,6 +239,7 @@ export default function PerjalananDinasDummy() {
                   </div>
                </div>
             </div>
+           )
           )}
 
           {currentView === 'pengajuan' && (
