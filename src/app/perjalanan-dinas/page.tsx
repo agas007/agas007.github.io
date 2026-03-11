@@ -6,6 +6,7 @@ import './perjalanan.css';
 export default function PerjalananDinasDummy() {
   const [activeTab, setActiveTab] = useState('requests');
   const [selectedRequest, setSelectedRequest] = useState<any>(null);
+  const [showNotifications, setShowNotifications] = useState(false);
 
   const requests = [
     { id: 'PD-2026-001', name: 'Budi Santoso', destination: 'Jakarta', date: '10 Mar 2026', status: 'Approved' },
@@ -54,7 +55,39 @@ export default function PerjalananDinasDummy() {
         {/* Navbar Header */}
         <header className="pd-header">
             <div className="pd-header-actions">
-                <span className="icon">🔔</span>
+                <div style={{ position: 'relative' }}>
+                  <button onClick={() => setShowNotifications(!showNotifications)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" style={{ width: '24px', height: '24px', color: '#64748b' }}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                    </svg>
+                    <span style={{ position: 'absolute', top: '8px', right: '8px', width: '8px', height: '8px', backgroundColor: '#ef4444', borderRadius: '50%' }}></span>
+                  </button>
+
+                  {showNotifications && (
+                    <div style={{ position: 'absolute', top: '100%', right: '0', marginTop: '8px', width: '320px', background: '#fff', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)', border: '1px solid #e2e8f0', zIndex: 50 }}>
+                      <div style={{ padding: '16px', borderBottom: '1px solid #f1f5f9' }}>
+                        <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', margin: 0, textAlign: 'left' }}>Notifikasi</h3>
+                      </div>
+                      <div style={{ maxHeight: '300px', overflowY: 'auto', textAlign: 'left' }}>
+                        <div style={{ padding: '16px', borderBottom: '1px solid #f1f5f9', background: '#f8fafc', cursor: 'pointer' }}>
+                           <p style={{ fontSize: '0.875rem', color: '#334155', margin: '0 0 4px 0' }}>Permohonan <span style={{ fontWeight: 600 }}>PD-2026-004</span> menunggu persetujuan Anda.</p>
+                           <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>10 menit yang lalu</span>
+                        </div>
+                        <div style={{ padding: '16px', borderBottom: '1px solid #f1f5f9', cursor: 'pointer' }}>
+                           <p style={{ fontSize: '0.875rem', color: '#334155', margin: '0 0 4px 0' }}>Permohonan <span style={{ fontWeight: 600 }}>PD-2026-001</span> telah disetujui.</p>
+                           <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>2 jam yang lalu</span>
+                        </div>
+                        <div style={{ padding: '16px', cursor: 'pointer' }}>
+                           <p style={{ fontSize: '0.875rem', color: '#334155', margin: '0 0 4px 0' }}>Laporan SPJ permohonan <span style={{ fontWeight: 600 }}>PD-2026-003</span> perlu direvisi.</p>
+                           <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Kemarin</span>
+                        </div>
+                      </div>
+                      <div style={{ padding: '12px', borderTop: '1px solid #f1f5f9', textAlign: 'center' }}>
+                        <a href="#" style={{ fontSize: '0.875rem', color: '#2563eb', textDecoration: 'none', fontWeight: 500 }}>Tandai semua dibaca</a>
+                      </div>
+                    </div>
+                  )}
+                </div>
                 <div className="pd-header-user">
                    <span style={{ fontSize: '0.875rem', fontWeight: 500 }}>Admin Subbag</span>
                    <div className="pd-header-user-avatar">AD</div>
