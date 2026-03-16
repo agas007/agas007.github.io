@@ -272,15 +272,60 @@ export default function TatWebpageDummy() {
 
       {/* Footer */}
       <footer className="tat-footer">
-        <div className="tat-logo" style={{ color: '#fff', marginBottom: '32px', justifyContent: 'center' }}>
-          <div className="tat-logo-icon">TAT</div>
-          <span style={{ fontSize: '1.5rem' }}>TAT & PARTNERS</span>
+        <div className="tat-footer-grid">
+          {/* Brand Col */}
+          <div className="tat-footer-col">
+            <div className="tat-logo" style={{ color: '#fff', marginBottom: '24px' }}>
+              <div className="tat-logo-icon">TAT</div>
+              <span style={{ fontSize: '1.25rem' }}>& Partners</span>
+            </div>
+            <p style={{ maxWidth: '300px' }}>
+              Mensederhanakan kerumitan demi solusi yang jelas. Konsultan pajak terdaftar dan mitra finansial terpercaya Anda.
+            </p>
+            <p style={{ marginTop: '20px', color: 'var(--tat-blue-light)', fontStyle: 'italic' }}>
+              "Tax Solutions, Prosperity Solutions"
+            </p>
+          </div>
+
+          {/* Locations Col */}
+          <div className="tat-footer-col">
+            <h4>📍 Head Office</h4>
+            <p>
+              Menara Sentraya, 12th Floor<br />
+              Jl. Iskandarsyah Raya 1A - Blok M<br />
+              Jakarta Selatan 12160
+            </p>
+            <h4 style={{ marginTop: '30px' }}>📍 Branch Office</h4>
+            <p>
+              UH-Town Building, Blok UH/B-01<br />
+              Jl. Boulevard UPJ Bintaro Sawah Baru<br />
+              Tangerang Selatan 15413
+            </p>
+          </div>
+
+          {/* Contact Col */}
+          <div className="tat-footer-col">
+            <h4>✉️ Hubungi Kami</h4>
+            <a href="mailto:taxconsultingtat@gmail.com" style={{ display: 'block', marginBottom: '12px' }}>taxconsultingtat@gmail.com</a>
+            <a href="tel:082112991209" style={{ display: 'block' }}>0821-1299-1209</a>
+            <a href="tel:02174790554" style={{ display: 'block', marginTop: '4px' }}>021-74790554</a>
+
+            <div className="tat-footer-socials">
+              <a href="https://www.instagram.com/tatax.solution" target="_blank" className="tat-social-icon" title="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="https://twitter.com/tataxsolution" target="_blank" className="tat-social-icon" title="Twitter">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+              </a>
+              <a href="https://www.facebook.com/tataxsolution" target="_blank" className="tat-social-icon" title="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+            </div>
+          </div>
         </div>
-        <p style={{ color: '#94a3b8', maxWidth: '500px', margin: '0 auto 40px' }}>
-          Gedung TATax, Lantai 4. Jl. Kebagusan Raya No. 123, Jakarta Selatan, Indonesia.
-        </p>
+
         <div className="tat-footer-copyright">
-          <p>© 2026 PT Tatax Konsultan Indonesia. All rights reserved.</p>
+          <p>© 2026 PT Tatax Konsultan Indonesia. Hak cipta dilindungi Undang-undang.</p>
           <a href="/" className="back-link">← Kembali ke Portfolio Agas</a>
         </div>
       </footer>
