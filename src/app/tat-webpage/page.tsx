@@ -179,8 +179,30 @@ export default function TatWebpageDummy() {
           <span style={{ color: 'var(--tat-blue)', fontWeight: 700, textTransform: 'uppercase', fontSize: '0.875rem', marginBottom: '12px', display: 'block' }}>Kepemimpinan</span>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--tat-blue-dark)' }}>Partner Kami</h2>
         </div>
+        {/* Top 2 Partners */}
+        <div className="tat-partners-grid" style={{ marginBottom: '48px' }}>
+          {partners.slice(0, 2).map((partner, idx) => (
+            <div key={idx} className="tat-partner-card">
+              <div className="tat-partner-image-wrapper">
+                <img 
+                  src={partner.image} 
+                  alt={partner.name} 
+                  className="tat-partner-image"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://ui-avatars.com/api/?name=" + partner.name + "&background=004d99&color=fff&size=512";
+                  }}
+                />
+              </div>
+              <h3>{partner.name}</h3>
+              <p>{partner.title}</p>
+              <span className="tat-partner-role">{partner.role}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Other Partners */}
         <div className="tat-partners-grid">
-          {partners.map((partner, idx) => (
+          {partners.slice(2).map((partner, idx) => (
             <div key={idx} className="tat-partner-card">
               <div className="tat-partner-image-wrapper">
                 <img 
