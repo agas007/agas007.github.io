@@ -165,15 +165,18 @@ nav {
 }
 
 .btn {
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.95rem;
   border: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .btn-primary {
@@ -203,7 +206,19 @@ nav {
   background: transparent;
   color: var(--text-primary);
   border: 1px solid var(--accent-1);
-  padding: 0.8rem 2rem;
+  padding: 0.7rem 1.2rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.button-group .btn {
+  flex: 1;
+  min-width: 140px;
+  white-space: nowrap;
 }
 
 .btn-outline:hover {
@@ -294,6 +309,10 @@ nav {
 
 .project-2-img {
   background: linear-gradient(135deg, #0f172a, #10b981);
+}
+
+.tat-partners-img {
+  background: linear-gradient(135deg, #1a1a2e, #004d99);
 }
 
 .card-content {

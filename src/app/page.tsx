@@ -116,7 +116,7 @@ export default function Home() {
                               <span>Node.js</span>
                               <span>Frontend</span>
                           </div>
-                          <div className="button-group" style={{ display: 'flex', gap: '10px' }}>
+                          <div className="button-group">
                               <a href="/gym-tracker" target="_blank" className="btn btn-outline" rel="noreferrer">Open Application</a>
                               <a href="https://github.com/agas007/gym-tracker" target="_blank" className="btn btn-outline" rel="noreferrer">Open Repository</a>
                           </div>
@@ -127,7 +127,7 @@ export default function Home() {
                   <div className="portfolio-card glass-card">
                       <div className="card-image project-2-img">
                            <div className="card-image-overlay">
-                              <span>Enterprise App</span>
+                               <span>Enterprise App</span>
                            </div>
                       </div>
                       <div className="card-content">
@@ -139,8 +139,36 @@ export default function Home() {
                               <span>Node.js</span>
                               <span>SQL</span>
                               <span>Laravel</span>
+                              <span>Frontend</span>
                           </div>
-                          <a href="/perjalanan-dinas" target="_blank" className="btn btn-outline" rel="noreferrer">Open Application</a>
+                          <div className="button-group">
+                              <a href="/perjalanan-dinas" target="_blank" className="btn btn-outline" rel="noreferrer">Open Application</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  {/* TAT & Partners Portfolio Card */}
+                  <div className="portfolio-card glass-card">
+                      <div className="card-image tat-partners-img">
+                           <div className="card-image-overlay">
+                               <span>Corporate Web</span>
+                           </div>
+                      </div>
+                      <div className="card-content">
+                          <h3>TAT & Partners</h3>
+                          <p>A premium corporate website for a tax consulting firm. Features complex service structures, academic programs, and an internal portal for task management.</p>
+                          <div className="tags">
+                              <span>Premium</span>
+                              <span>Next.js</span>
+                              <span>Prisma</span>
+                              <span>SQLite</span>
+                              <span>Portal</span>
+                              <span>Tailwind</span>
+                          </div>
+                          <div className="button-group">
+                              <a href="/tat-webpage" target="_blank" className="btn btn-outline" rel="noreferrer">Open Application</a>
+                              <a href="https://github.com/agas007/tat-webpage" target="_blank" className="btn btn-outline" rel="noreferrer">Open Repository</a>
+                          </div>
                       </div>
                   </div>
               </div>

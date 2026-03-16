@@ -1,0 +1,285 @@
+.tat-container {
+    --tat-blue: #004d99;
+    --tat-blue-dark: #1a1a2e;
+    --tat-blue-light: #0066cc;
+    --tat-silver: #f0f2f5;
+    --tat-text-dark: #1a1a2e;
+    --tat-text-gray: #64748b;
+    
+    background: #fff;
+    color: var(--tat-text-dark);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.tat-nav {
+    height: 80px;
+    background: #fff;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.tat-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--tat-blue-dark);
+    text-decoration: none;
+}
+
+.tat-logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--tat-blue);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+.tat-nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.tat-nav-links a {
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: color 0.3s;
+}
+
+.tat-nav-links a:hover {
+    color: var(--tat-blue);
+}
+
+.tat-hero {
+    background: var(--tat-blue-dark);
+    color: #fff;
+    padding: 120px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.tat-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.tat-hero-badge {
+    background: rgba(0, 77, 153, 0.2);
+    border: 1px solid rgba(0, 102, 204, 0.3);
+    color: #fff;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.tat-hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.tat-hero h1 span {
+    color: var(--tat-blue-light);
+}
+
+.tat-hero p {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+.tat-btn {
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.tat-btn-primary {
+    background: var(--tat-blue);
+    color: #fff;
+}
+
+.tat-btn-primary:hover {
+    background: var(--tat-blue-light);
+    transform: translateY(-2px);
+}
+
+.tat-btn-outline {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    margin-left: 16px;
+}
+
+/* Clients Marquee */
+.tat-trust {
+    padding: 100px 0;
+    background: var(--tat-silver);
+}
+
+.tat-trust-title {
+    text-align: center;
+    color: #64748b;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 60px;
+}
+
+.tat-marquee-container {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+.tat-marquee {
+    display: flex;
+    gap: 80px;
+    padding: 20px 0;
+    animation: tat-scroll-left 40s linear infinite;
+    white-space: nowrap;
+    align-items: center;
+}
+
+@keyframes tat-scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.tat-client-logo {
+    height: 40px;
+    opacity: 0.6;
+    filter: grayscale(1);
+    transition: all 0.3s;
+}
+
+.tat-client-logo:hover {
+    opacity: 1;
+    filter: grayscale(0);
+}
+
+.tat-section {
+    padding: 100px 40px;
+}
+
+.tat-section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.tat-section-subtitle {
+    color: var(--tat-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.tat-section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--tat-blue-dark);
+}
+
+.tat-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tat-service-card {
+    background: #fff;
+    border: 1px solid #f1f5f9;
+    padding: 40px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.tat-service-card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border-color: var(--tat-blue);
+    transform: translateY(-5px);
+}
+
+.tat-service-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--tat-silver);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    color: var(--tat-blue);
+}
+
+.tat-service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.tat-service-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.tat-footer {
+    background: var(--tat-blue-dark);
+    color: #fff;
+    padding: 80px 40px 40px;
+    text-align: center;
+}
+
+.tat-footer-logo {
+    margin-bottom: 40px;
+    display: inline-flex;
+}
+
+.tat-footer-copyright {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    color: #94a3b8;
+    font-size: 0.875rem;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: var(--tat-blue-light);
+    text-decoration: none;
+    font-weight: 600;
+}
