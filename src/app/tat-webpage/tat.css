@@ -186,75 +186,188 @@
     filter: grayscale(0);
 }
 
-.tat-section {
-    padding: 100px 40px;
+/* Partners / Leadership Section */
+.tat-partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 48px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.tat-section-header {
+.tat-partner-card {
+    width: 280px;
     text-align: center;
-    max-width: 800px;
-    margin: 0 auto 60px;
+    transition: all 0.3s;
 }
 
-.tat-section-subtitle {
-    color: var(--tat-blue);
+.tat-partner-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background: var(--tat-silver);
+    position: relative;
+}
+
+.tat-partner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.tat-partner-card:hover .tat-partner-image {
+    transform: scale(1.05);
+}
+
+.tat-partner-card h3 {
+    font-size: 1.25rem;
     font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.875rem;
+    margin-bottom: 4px;
+}
+
+.tat-partner-card p {
+    font-size: 0.75rem;
+    color: var(--tat-text-gray);
     margin-bottom: 12px;
-    display: block;
 }
 
-.tat-section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--tat-blue-dark);
+.tat-partner-role {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(0, 77, 153, 0.1);
+    color: var(--tat-blue);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
-.tat-services-grid {
+/* Academy Section */
+.tat-academy {
+    background: var(--tat-blue-dark);
+    color: #fff;
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tat-academy-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.tat-service-card {
-    background: #fff;
-    border: 1px solid #f1f5f9;
+.tat-academy-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 40px;
     border-radius: 20px;
-    transition: all 0.3s;
+    backdrop-filter: blur(10px);
 }
 
-.tat-service-card:hover {
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-    border-color: var(--tat-blue);
-    transform: translateY(-5px);
-}
-
-.tat-service-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--tat-silver);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.tat-academy-card h3 {
     font-size: 1.5rem;
-    margin-bottom: 24px;
-    color: var(--tat-blue);
-}
-
-.tat-service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 16px;
     font-weight: 700;
+    margin-bottom: 12px;
 }
 
-.tat-service-card p {
-    color: #64748b;
+.tat-academy-card p {
+    color: #cbd5e1;
     line-height: 1.6;
+}
+
+.tat-academy-type {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--tat-blue-light);
+    margin-bottom: 16px;
+    display: block;
+}
+
+/* Contact Form Section */
+.tat-contact-section {
+    background: var(--tat-silver);
+    padding: 100px 40px;
+}
+
+.tat-contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 30px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.tat-contact-info {
+    width: 40%;
+    background: var(--tat-blue);
+    color: #fff;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tat-contact-info h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.tat-contact-form {
+    width: 60%;
+    padding: 60px;
+}
+
+.tat-form-group {
+    margin-bottom: 20px;
+}
+
+.tat-form-input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.tat-form-input:focus {
+    border-color: var(--tat-blue);
+}
+
+.tat-form-btn {
+    background: #f97316;
+    color: #fff;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.tat-form-btn:hover {
+    background: #ea580c;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .tat-contact-container {
+        flex-direction: column;
+    }
+    .tat-contact-info, .tat-contact-form {
+        width: 100%;
+    }
 }
 
 .tat-footer {
