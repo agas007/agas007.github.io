@@ -2,6 +2,7 @@
     --tat-blue: #004d99;
     --tat-blue-dark: #1a1a2e;
     --tat-blue-light: #0066cc;
+    --tat-yellow: #FFC107;
     --tat-silver: #f0f2f5;
     --tat-text-dark: #1a1a2e;
     --tat-text-gray: #64748b;
@@ -10,7 +11,9 @@
     color: var(--tat-text-dark);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     min-height: 100vh;
-    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    overflow-x: clip; 
 }
 
 .tat-nav {
@@ -20,10 +23,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 5%;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* Override global portfolio nav styles */
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    left: 0;
 }
 
 .tat-logo {
@@ -55,7 +64,7 @@
 
 .tat-nav-links a {
     text-decoration: none;
-    color: #64748b;
+    color: var(--tat-text-gray);
     font-weight: 500;
     font-size: 0.875rem;
     transition: color 0.3s;

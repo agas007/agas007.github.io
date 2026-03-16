@@ -19,12 +19,48 @@ export default function TatWebpageDummy() {
   ];
 
   const services = [
-    { icon: "🏛️", title: "Tax Compliance", desc: "Pengelolaan kepatuhan pajak bulanan dan tahunan secara akurat sesuai regulasi terkini." },
-    { icon: "🛡️", title: "Tax Audit & Litigation", desc: "Pendampingan profesional dalam proses pemeriksaan, keberatan, hingga banding di Pengadilan Pajak." },
-    { icon: "💡", title: "Tax Advisory", desc: "Konsultasi strategis untuk optimasi perencanaan pajak yang legal dan efisien bagi bisnis Anda." },
-    { icon: "🎓", title: "TATax Academy", desc: "Program pendidikan dan pelatihan perpajakan untuk pengembangan kapasitas sumber daya manusia." },
-    { icon: "📋", title: "Tax Administration", desc: "Layanan pengurusan administrasi perpajakan mulai dari NPWP hingga pencabutan status PKP." },
-    { icon: "🗺️", title: "International Tax", desc: "Solusi perpajakan lintas batas negara, transfer pricing, dan kepatuhan perjanjian pajak internasional." }
+    { 
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>
+      ), 
+      title: "Tax Compliance", 
+      desc: "Pengelolaan kepatuhan pajak bulanan dan tahunan secara akurat sesuai regulasi terkini." 
+    },
+    { 
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      ), 
+      title: "Tax Audit & Litigation", 
+      desc: "Pendampingan profesional dalam proses pemeriksaan, keberatan, hingga banding di Pengadilan Pajak." 
+    },
+    { 
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/></svg>
+      ), 
+      title: "Tax Advisory", 
+      desc: "Konsultasi strategis untuk optimasi perencanaan pajak yang legal dan efisien bagi bisnis Anda." 
+    },
+    { 
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+      ), 
+      title: "TATax Academy", 
+      desc: "Program pendidikan dan pelatihan perpajakan untuk pengembangan kapasitas sumber daya manusia." 
+    },
+    { 
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+      ), 
+      title: "Tax Administration", 
+      desc: "Layanan pengurusan administrasi perpajakan mulai dari NPWP hingga pencabutan status PKP." 
+    },
+    { 
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      ), 
+      title: "International Tax", 
+      desc: "Solusi perpajakan lintas batas negara, transfer pricing, dan kepatuhan perjanjian pajak internasional." 
+    }
   ];
 
   const partners = [
@@ -162,7 +198,6 @@ export default function TatWebpageDummy() {
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'center', 
-                    fontSize: '1.5rem', 
                     marginBottom: '24px', 
                     color: 'var(--tat-blue)' 
                 }}>{service.icon}</div>
@@ -179,6 +214,7 @@ export default function TatWebpageDummy() {
           <span style={{ color: 'var(--tat-blue)', fontWeight: 700, textTransform: 'uppercase', fontSize: '0.875rem', marginBottom: '12px', display: 'block' }}>Kepemimpinan</span>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--tat-blue-dark)' }}>Partner Kami</h2>
         </div>
+        
         {/* Top 2 Partners */}
         <div className="tat-partners-grid" style={{ marginBottom: '48px' }}>
           {partners.slice(0, 2).map((partner, idx) => (
@@ -289,13 +325,19 @@ export default function TatWebpageDummy() {
 
           {/* Locations Col */}
           <div className="tat-footer-col">
-            <h4>📍 Head Office</h4>
+            <h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Head Office
+            </h4>
             <p>
               Menara Sentraya, 12th Floor<br />
               Jl. Iskandarsyah Raya 1A - Blok M<br />
               Jakarta Selatan 12160
             </p>
-            <h4 style={{ marginTop: '30px' }}>📍 Branch Office</h4>
+            <h4 style={{ marginTop: '30px' }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Branch Office
+            </h4>
             <p>
               UH-Town Building, Blok UH/B-01<br />
               Jl. Boulevard UPJ Bintaro Sawah Baru<br />
@@ -305,10 +347,22 @@ export default function TatWebpageDummy() {
 
           {/* Contact Col */}
           <div className="tat-footer-col">
-            <h4>✉️ Hubungi Kami</h4>
-            <a href="mailto:taxconsultingtat@gmail.com" style={{ display: 'block', marginBottom: '12px' }}>taxconsultingtat@gmail.com</a>
-            <a href="tel:082112991209" style={{ display: 'block' }}>0821-1299-1209</a>
-            <a href="tel:02174790554" style={{ display: 'block', marginTop: '4px' }}>021-74790554</a>
+            <h4 style={{ display: 'flex', alignItems: 'center' }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Hubungi Kami
+            </h4>
+            <a href="mailto:taxconsultingtat@gmail.com" style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+               taxconsultingtat@gmail.com
+            </a>
+            <a href="tel:082112991209" style={{ display: 'flex', alignItems: 'center' }}>
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+               0821-1299-1209
+            </a>
+            <a href="tel:02174790554" style={{ display: 'flex', alignItems: 'center', marginTop: '4px' }}>
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+               021-74790554
+            </a>
 
             <div className="tat-footer-socials">
               <a href="https://www.instagram.com/tatax.solution" target="_blank" className="tat-social-icon" title="Instagram">
