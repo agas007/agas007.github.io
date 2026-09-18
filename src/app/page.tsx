@@ -91,16 +91,16 @@ export default function Home() {
                 <aside className="hero-panel glass-card fade-in">
                     <div className="hero-panel-top">
                         <span className="status-dot"></span>
-                        <span>Currently building</span>
+                        <span>Current focus</span>
                     </div>
                     <div className="hero-panel-line"></div>
-                    <p className="hero-panel-index">01 / 03</p>
-                    <h2>Systems that connect numbers, people, and action.</h2>
-                    <p className="hero-panel-copy">From tax operations to internal workflows, I turn messy processes into tools people can actually use.</p>
+                    <p className="hero-panel-index">Open-source collaboration</p>
+                    <h2>Useful tools beyond the browser.</h2>
+                    <p className="hero-panel-copy">From tax operations to cross-platform desktop apps, I enjoy turning practical ideas into products people can actually use.</p>
                     <div className="hero-panel-tags">
-                        <span>Finance systems</span>
-                        <span>Automation</span>
-                        <span>Web apps</span>
+                        <span>Internal systems</span>
+                        <span>Open source</span>
+                        <span>Cross-platform</span>
                     </div>
                 </aside>
               </div>
@@ -132,15 +132,39 @@ export default function Home() {
                 <p className="section-lede">A mix of working systems, product concepts, and experiments across finance, operations, and everyday life.</p>
               </div>
               <div className="portfolio-grid fade-in">
-                  {/* Bupot PANRB Portfolio Card */}
+                  {/* TAT & Partners Portfolio Card */}
                   <div className="portfolio-card portfolio-card-featured glass-card">
+                      <div className="card-image tat-partners-img">
+                           <div className="card-image-overlay">
+                              <span>Corporate Web</span>
+                           </div>
+                      </div>
+                      <div className="card-content">
+                          <p className="project-number">01 · Client experience</p>
+                          <h3>TAT &amp; Partners</h3>
+                          <p>A corporate web experience for a tax consulting firm, presenting services, academy programs, partners, clients, and a task-management portal concept.</p>
+                          <div className="tags">
+                              <span>Next.js</span>
+                              <span>React</span>
+                              <span>TypeScript</span>
+                              <span>UI/UX</span>
+                          </div>
+                          <div className="button-group">
+                              <a href="/tat-webpage" target="_blank" className="btn btn-outline" rel="noreferrer">Open Application</a>
+                              <a href="https://github.com/agas007/tat-webpage" target="_blank" className="btn btn-outline" rel="noreferrer">View Repository <span aria-hidden="true">↗</span></a>
+                          </div>
+                      </div>
+                  </div>
+
+                  {/* Bupot PANRB Portfolio Card */}
+                  <div className="portfolio-card glass-card">
                       <div className="card-image bupot-img">
                            <div className="card-image-overlay">
                               <span>Internal System</span>
                            </div>
                       </div>
                       <div className="card-content">
-                          <p className="project-number">01 · Featured build</p>
+                          <p className="project-number">02 · Operations system</p>
                           <h3>Bupot PANRB</h3>
                           <p>A monitoring system for withholding-tax documents, designed to make document status, reporting, and operational follow-up easier to manage.</p>
                           <div className="tags">
@@ -155,77 +179,25 @@ export default function Home() {
                       </div>
                   </div>
 
-                  {/* Gym Tracker Portfolio Card */}
+                  {/* WhatsApp Desktop Portfolio Card */}
                   <div className="portfolio-card glass-card">
-                      <div className="card-image gym-tracker-img">
+                      <div className="card-image whatsapp-img">
                            <div className="card-image-overlay">
-                              <span>Fitness App</span>
+                               <span>Open-source desktop</span>
                            </div>
                       </div>
                       <div className="card-content">
-                          <p className="project-number">02 · Product concept</p>
-                          <h3>Gym Tracker</h3>
-                          <p>A role-based fitness management concept for gym owners, instructors, and students, with workout planning, progress tracking, and dashboard views.</p>
+                          <p className="project-number">03 · Cross-platform collaboration</p>
+                          <h3>WhatsApp Desk</h3>
+                          <p>A lightweight desktop client for WhatsApp Web, built with Go and native OS web engines across macOS, Windows, and Linux.</p>
                           <div className="tags">
-                              <span>Next.js</span>
-                              <span>Tailwind CSS</span>
-                              <span>Node.js</span>
-                              <span>Frontend</span>
+                              <span>Go</span>
+                              <span>WebKit</span>
+                              <span>WebView2</span>
+                              <span>WebKitGTK</span>
                           </div>
                           <div className="button-group">
-                              <a href="/gym-tracker" target="_blank" className="btn btn-outline" rel="noreferrer">Open Application</a>
-                              <a href="https://github.com/agas007/gym-tracker" target="_blank" className="btn btn-outline" rel="noreferrer">Open Repository</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  {/* Perjalanan Dinas Portfolio Card */}
-                  <div className="portfolio-card glass-card">
-                      <div className="card-image project-2-img">
-                           <div className="card-image-overlay">
-                               <span>Enterprise App</span>
-                           </div>
-                      </div>
-                      <div className="card-content">
-                          <p className="project-number">03 · Workflow concept</p>
-                          <h3>Perjalanan Dinas</h3>
-                          <p>An internal workflow concept for official travel requests, approvals, notifications, reporting, and administrative oversight.</p>
-                          <div className="tags">
-                              <span>Enterprise</span>
-                              <span>Angular</span>
-                              <span>Node.js</span>
-                              <span>SQL</span>
-                              <span>Laravel</span>
-                              <span>Frontend</span>
-                          </div>
-                          <div className="button-group">
-                              <a href="/perjalanan-dinas" target="_blank" className="btn btn-outline" rel="noreferrer">Open Application</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  {/* TAT & Partners Portfolio Card */}
-                  <div className="portfolio-card glass-card">
-                      <div className="card-image tat-partners-img">
-                           <div className="card-image-overlay">
-                               <span>Corporate Web</span>
-                           </div>
-                      </div>
-                      <div className="card-content">
-                          <p className="project-number">04 · Client experience</p>
-                          <h3>TAT & Partners</h3>
-                          <p>A corporate web experience for a tax consulting firm, presenting services, academy programs, partners, clients, and a task-management portal concept.</p>
-                          <div className="tags">
-                              <span>Premium</span>
-                              <span>Next.js</span>
-                              <span>Prisma</span>
-                              <span>SQLite</span>
-                              <span>Portal</span>
-                              <span>Tailwind</span>
-                          </div>
-                          <div className="button-group">
-                              <a href="/tat-webpage" target="_blank" className="btn btn-outline" rel="noreferrer">Open Application</a>
-                              <a href="https://github.com/agas007/tat-webpage" target="_blank" className="btn btn-outline" rel="noreferrer">Open Repository</a>
+                              <a href="https://github.com/vianziro/Whatsapp-Dekstop" target="_blank" className="btn btn-outline" rel="noreferrer">View Repository <span aria-hidden="true">↗</span></a>
                           </div>
                       </div>
                   </div>

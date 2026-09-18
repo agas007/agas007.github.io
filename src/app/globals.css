@@ -486,7 +486,9 @@ nav {
 }
 
 .bupot-img {
-  background: linear-gradient(145deg, #111827 0%, #3730a3 48%, #7c3aed 100%);
+  background:
+    linear-gradient(145deg, rgba(17, 24, 39, 0.9), rgba(55, 48, 163, 0.76) 48%, rgba(124, 58, 237, 0.7)),
+    linear-gradient(120deg, #111827, #3730a3 55%, #7c3aed);
 }
 
 .project-2-img {
@@ -494,7 +496,17 @@ nav {
 }
 
 .tat-partners-img {
-  background: linear-gradient(135deg, #1a1a2e, #004d99);
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.36), rgba(0, 77, 153, 0.48)),
+    url('/projects/tat/images/media__1773559242274.png');
+  background-position: center;
+}
+
+.whatsapp-img {
+  background:
+    linear-gradient(135deg, rgba(8, 13, 24, 0.28), rgba(6, 78, 59, 0.58)),
+    url('https://raw.githubusercontent.com/vianziro/Whatsapp-Dekstop/main/screenshots/app-dark.png');
+  background-position: center;
 }
 
 .card-content {
