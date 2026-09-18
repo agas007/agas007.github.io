@@ -1,14 +1,14 @@
 # Agas Portfolio
 
-Personal portfolio for Agastya Arnanda Primawan — a finance and tax professional building practical software, automation, and internal systems.
+Personal portfolio for Agastya Arnanda Primawan, showcasing practical software, automation, internal systems, and cross-platform desktop collaborations.
 
-## Featured work
+## Selected work
 
-- **Gym Tracker** — role-based fitness management concept with workout planning and progress dashboards.
-- **Perjalanan Dinas** — internal workflow concept for travel requests, approvals, notifications, and reporting.
-- **TAT & Partners** — corporate web experience for a tax consulting firm, including services, academy programs, and partner profiles.
+- **TAT & Partners** — corporate web experience for a tax consulting firm, covering services, academy programs, partners, clients, and a task-management portal concept.
+- **Bupot PANRB** — monitoring system for withholding-tax documents and operational follow-up across finance and tax workflows.
+- **WhatsApp Desk** — lightweight, privacy-respecting desktop client for WhatsApp Web, built with Go and native operating-system web engines across macOS, Windows, and Linux.
 
-## Stack
+## Tech stack
 
 Next.js · React · TypeScript · JavaScript · Node.js · Go · Python · PostgreSQL
 
