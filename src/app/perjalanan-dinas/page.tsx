@@ -1,11 +1,20 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import './perjalanan.css';
+
+type TravelRequest = {
+  id: string;
+  name: string;
+  destination: string;
+  date: string;
+  status: string;
+};
 
 export default function PerjalananDinasDummy() {
   const [activeTab, setActiveTab] = useState('requests');
-  const [selectedRequest, setSelectedRequest] = useState<any>(null);
+  const [selectedRequest, setSelectedRequest] = useState<TravelRequest | null>(null);
   const [showNotifications, setShowNotifications] = useState(false);
   const [currentView, setCurrentView] = useState('dashboard');
 
@@ -45,9 +54,9 @@ export default function PerjalananDinasDummy() {
             </a>
         </nav>
         <div className="pd-sidebar-footer">
-           <a href="/" className="pd-user-profile">
+           <Link href="/" className="pd-user-profile">
               <span className="icon mr-2">←</span> Back to Portfolio
-           </a>
+           </Link>
         </div>
       </aside>
 

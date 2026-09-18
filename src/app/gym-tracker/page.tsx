@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import './gym.css';
 
 export default function GymTrackerDummy() {
@@ -28,7 +29,7 @@ export default function GymTrackerDummy() {
       <div className="gym-landing-container">
         <nav className="gym-landing-nav">
           <div className="gym-landing-nav-inner">
-            <a href="/" className="gym-landing-logo">MAJAPAHIT<span>GYM</span></a>
+            <Link href="/" className="gym-landing-logo">MAJAPAHIT<span>GYM</span></Link>
             <div className="gym-landing-menu">
               <a href="#features" className="gym-landing-link">Features</a>
               <a href="#pricing" className="gym-landing-link">Pricing</a>
@@ -44,7 +45,7 @@ export default function GymTrackerDummy() {
             <p>The ultimate fitness tracking platform for gym owners, instructors, and students. Manage your progress seamlessly.</p>
             <div className="gym-landing-hero-actions">
               <button onClick={() => setRole('LOGIN')} className="gym-landing-btn" style={{ padding: '12px 24px', fontSize: '1rem' }}>Get Started</button>
-              <a href="/" className="gym-landing-link" style={{ fontSize: '1rem' }}>Back to Portfolio →</a>
+              <Link href="/" className="gym-landing-link" style={{ fontSize: '1rem' }}>Back to Portfolio →</Link>
             </div>
           </div>
           <div className="gym-landing-mockup-wrapper">
@@ -64,7 +65,7 @@ export default function GymTrackerDummy() {
              <div className="gym-landing-feature">
                 <div className="gym-landing-feature-icon">👑</div>
                 <h4>Admin Dashboard</h4>
-                <p>Complete overview of your gym's performance. Manage users, instructors, and track platform-wide statistics effortlessly.</p>
+                <p>Complete overview of your gym&apos;s performance. Manage users, instructors, and track platform-wide statistics effortlessly.</p>
              </div>
              <div className="gym-landing-feature">
                 <div className="gym-landing-feature-icon">💪</div>
@@ -90,7 +91,7 @@ export default function GymTrackerDummy() {
                 <h3>Gym Tracker Pro</h3>
                 <p>Perfect for growing fitness centers and independent instructors looking to scale their operations.</p>
                 <div className="gym-landing-pricing-included">
-                  <h4>What's included</h4>
+                  <h4>What&apos;s included</h4>
                   <div className="line"></div>
                 </div>
                 <ul className="gym-landing-pricing-features">
@@ -139,7 +140,7 @@ export default function GymTrackerDummy() {
           <div className="gym-landing-footer-inner">
              <div className="gym-landing-footer-grid">
                 <div className="gym-landing-footer-brand">
-                    <a href="/" className="gym-landing-logo">MAJAPAHIT<span>GYM</span></a>
+                    <Link href="/" className="gym-landing-logo">MAJAPAHIT<span>GYM</span></Link>
                     <p>Making the world a better place through constructing elegant hierarchies and tracking your physical potential.</p>
                 </div>
                 <div className="gym-landing-footer-links">
@@ -185,7 +186,7 @@ export default function GymTrackerDummy() {
           <button onClick={() => setRole('INSTRUCTOR')} className="gym-login-btn secondary">Login as Instructor</button>
           <button onClick={() => setRole('STUDENT')} className="gym-login-btn secondary">Login as Student</button>
           
-          <a href="/" className="gym-login-back">← Back to Portfolio</a>
+          <Link href="/" className="gym-login-back">← Back to Portfolio</Link>
         </div>
       </div>
     );
@@ -274,7 +275,7 @@ export default function GymTrackerDummy() {
                   </div>
                </div>
                <div className="gym-card">
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '24px' }}>What's New</h3>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '24px' }}>What&apos;s New</h3>
                   <div>
                      <div className="gym-news-item">
                         <p className="gym-news-date">MAR 04, 2026</p>
@@ -504,7 +505,7 @@ export default function GymTrackerDummy() {
             <div className="gym-card">
                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '24px' }}>Recent Activity</h3>
                <div className="gym-list-item" style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
-                  <p style={{ fontSize: '0.875rem' }}><strong>Sarah Jenkins</strong> completed the "Upper Body Crusher" plan.</p>
+                  <p style={{ fontSize: '0.875rem' }}><strong>Sarah Jenkins</strong> completed the &quot;Upper Body Crusher&quot; plan.</p>
                   <p style={{ fontSize: '0.75rem', color: '#71717a', marginTop: '4px' }}>2 hours ago</p>
                </div>
                <div className="gym-list-item" style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
@@ -597,7 +598,7 @@ export default function GymTrackerDummy() {
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '32px', gap: '16px' }}>
                    <button onClick={() => setInstructorTab('students')} style={{ background: 'none', border: 'none', color: '#a1a1aa', cursor: 'pointer', fontSize: '1rem' }}>←</button>
                    <div>
-                     <h1 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#fff' }}>Sarah Jenkins's Profile</h1>
+                     <h1 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#fff' }}>Sarah Jenkins&apos;s Profile</h1>
                      <p style={{ color: '#a1a1aa' }}>sarah.j@example.com</p>
                    </div>
                 </div>
@@ -846,7 +847,7 @@ export default function GymTrackerDummy() {
             <div className="gym-student-wrapper">
                <div className="gym-student-header">
                   <h2>Hi, Student 👋</h2>
-                  <p>Let's crush your goals today!</p>
+                  <p>Let&apos;s crush your goals today!</p>
                </div>
                
                <div className="gym-student-card">

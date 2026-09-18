@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import './tat.css';
 
 export default function TatWebpageDummy() {
@@ -120,10 +121,10 @@ export default function TatWebpageDummy() {
     <div className="tat-container">
       {/* Navigation */}
       <nav className="tat-nav">
-        <a href="/" className="tat-logo">
+        <Link href="/" className="tat-logo">
           <div className="tat-logo-icon">TAT</div>
           <span>TAT & PARTNERS</span>
-        </a>
+        </Link>
         <div className="tat-nav-links">
           <a href="#hero">Beranda</a>
           <a href="#layanan">Layanan</a>
@@ -319,7 +320,7 @@ export default function TatWebpageDummy() {
               Mensederhanakan kerumitan demi solusi yang jelas. Konsultan pajak terdaftar dan mitra finansial terpercaya Anda.
             </p>
             <p style={{ marginTop: '20px', color: 'var(--tat-blue-light)', fontStyle: 'italic' }}>
-              "Tax Solutions, Prosperity Solutions"
+              &quot;Tax Solutions, Prosperity Solutions&quot;
             </p>
           </div>
 
@@ -380,7 +381,7 @@ export default function TatWebpageDummy() {
 
         <div className="tat-footer-copyright">
           <p>© 2026 PT Tatax Konsultan Indonesia. Hak cipta dilindungi Undang-undang.</p>
-          <a href="/" className="back-link">← Kembali ke Portfolio Agas</a>
+          <Link href="/" className="back-link">← Kembali ke Portfolio Agas</Link>
         </div>
       </footer>
     </div>

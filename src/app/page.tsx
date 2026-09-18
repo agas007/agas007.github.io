@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 export default function Home() {
   useEffect(() => {
@@ -60,7 +61,7 @@ export default function Home() {
       
       <header className="glass-nav">
           <nav>
-              <div className="logo"><a href="/">Agas</a></div>
+              <div className="logo"><Link href="/">Agas</Link></div>
               <ul className="nav-links">
                   <li><a href="#about">About</a></li>
                   <li><a href="#tech-stack">Tech Stack</a></li>
@@ -73,8 +74,9 @@ export default function Home() {
       <main>
           <section id="about" className="hero">
               <div className="hero-content fade-in">
+                  <p className="eyebrow">Finance &amp; tax professional · software builder</p>
                   <h1>Hi, {"I'm"} <span className="highlight">Agas</span></h1>
-                  <p className="subtitle">Building sleek, performant, and premium web applications.</p>
+                  <p className="subtitle">I build practical software, automation, and internal systems that make complex work easier to manage.</p>
                   <div className="cta-group">
                       <a href="#portfolio" className="btn btn-primary">View My Work</a>
                       <a href="#contact" className="btn btn-secondary">Get in Touch</a>
@@ -85,14 +87,14 @@ export default function Home() {
           <section id="tech-stack" className="section">
               <h2 className="section-title fade-in">Tech Stack</h2>
               <div className="tech-grid fade-in">
-                  <div className="tech-card js">JavaScript</div>
                   <div className="tech-card js">TypeScript</div>
+                  <div className="tech-card js">JavaScript</div>
                   <div className="tech-card js">Next.js</div>
-                  <div className="tech-card js">Angular</div>
-                  <div className="tech-card node">Node.js</div>
                   <div className="tech-card react">React</div>
-                  <div className="tech-card react">Express</div>
-                  <div className="tech-card react">SQL / NoSQL</div>
+                  <div className="tech-card node">Node.js</div>
+                  <div className="tech-card node">Go</div>
+                  <div className="tech-card react">Python</div>
+                  <div className="tech-card react">PostgreSQL</div>
                   <div className="tech-card html">HTML & CSS</div>
               </div>
           </section>
@@ -109,9 +111,9 @@ export default function Home() {
                       </div>
                       <div className="card-content">
                           <h3>Gym Tracker</h3>
-                          <p>A comprehensive workout tracking application built with Next JS and Tailwind CSS. Includes user management, exercise tracking, and real-time statistics.</p>
+                          <p>A role-based fitness management concept for gym owners, instructors, and students, with workout planning, progress tracking, and dashboard views.</p>
                           <div className="tags">
-                              <span>Next JS</span>
+                              <span>Next.js</span>
                               <span>Tailwind CSS</span>
                               <span>Node.js</span>
                               <span>Frontend</span>
@@ -132,7 +134,7 @@ export default function Home() {
                       </div>
                       <div className="card-content">
                           <h3>Perjalanan Dinas</h3>
-                          <p>A comprehensive system to manage official corporate travel requests, internal approval processes, and dynamic frontend workflows.</p>
+                          <p>An internal workflow concept for official travel requests, approvals, notifications, reporting, and administrative oversight.</p>
                           <div className="tags">
                               <span>Enterprise</span>
                               <span>Angular</span>
@@ -156,7 +158,7 @@ export default function Home() {
                       </div>
                       <div className="card-content">
                           <h3>TAT & Partners</h3>
-                          <p>A premium corporate website for a tax consulting firm. Features complex service structures, academic programs, and an internal portal for task management.</p>
+                          <p>A corporate web experience for a tax consulting firm, presenting services, academy programs, partners, clients, and a task-management portal concept.</p>
                           <div className="tags">
                               <span>Premium</span>
                               <span>Next.js</span>
@@ -177,14 +179,18 @@ export default function Home() {
           <section id="contact" className="section">
               <h2 className="section-title fade-in">Get In Touch</h2>
               <div className="contact-card glass-card fade-in">
-                  <p>{"I'm"} currently looking for new opportunities. Whether you have a question or just want to say hi, {"I'll"} try my best to get back to you!</p>
-                  <a href="mailto:agastyaarnanda@gmail.com" className="btn btn-primary">Say Hello</a>
+                  <p>Have a project involving finance workflows, tax operations, internal tools, or web applications? Let&apos;s connect.</p>
+                  <div className="contact-actions">
+                      <a href="mailto:agastyaarnanda@gmail.com" className="btn btn-primary">Email Me</a>
+                      <a href="https://www.linkedin.com/in/agastyaarnanda/" className="btn btn-secondary" target="_blank" rel="noreferrer">LinkedIn</a>
+                      <a href="https://github.com/agas007" className="btn btn-secondary" target="_blank" rel="noreferrer">GitHub</a>
+                  </div>
               </div>
           </section>
       </main>
 
       <footer>
-          <p>&copy; 2026 Agas. Built with ❤️</p>
+          <p>&copy; 2026 Agas. Finance, tax, and software.</p>
       </footer>
     </>
   );

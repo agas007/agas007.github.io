@@ -143,6 +143,15 @@ nav {
   z-index: 1;
 }
 
+.eyebrow {
+  color: #a5b4fc;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
 .hero-content h1 {
   font-size: clamp(3.5rem, 8vw, 6rem);
   margin-bottom: 1.5rem;
@@ -362,6 +371,13 @@ nav {
   margin-bottom: 3rem;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
 /* Footer */
 footer {
   text-align: center;
@@ -390,5 +406,17 @@ footer {
       width: 100%;
       max-width: 300px;
       margin: 0 auto;
+  }
+
+  .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+  }
+
+  .contact-actions {
+      flex-direction: column;
+      align-items: stretch;
+      margin: 0 auto;
+      max-width: 300px;
   }
 }    
