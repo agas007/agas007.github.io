@@ -23,6 +23,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section {
+  scroll-margin-top: 96px;
+}
+
 body {
   font-family: var(--font-inter), 'Inter', sans-serif;
   background-color: var(--bg-dark);
@@ -124,19 +128,47 @@ nav {
 }
 
 .section-title {
-  font-size: 3rem;
-  margin-bottom: 3rem;
-  text-align: center;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.section-heading {
+  max-width: 680px;
+  margin-bottom: 3.5rem;
+}
+
+.section-kicker {
+  color: #a5b4fc;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.section-lede {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 580px;
 }
 
 /* Hero Section */
 .hero {
-  height: 100vh;
+  min-height: min(860px, 92vh);
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 0 20px;
+  padding: 9rem 2rem 7rem;
+}
+
+.hero-grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  align-items: center;
+  gap: clamp(3rem, 8vw, 8rem);
 }
 
 .hero-content {
@@ -156,6 +188,7 @@ nav {
   font-size: clamp(3.5rem, 8vw, 6rem);
   margin-bottom: 1.5rem;
   line-height: 1.1;
+  max-width: 720px;
 }
 
 .subtitle {
@@ -163,14 +196,131 @@ nav {
   color: var(--text-secondary);
   margin-bottom: 3rem;
   max-width: 600px;
-  margin-inline: auto;
+}
+
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.hero-proof span {
+  padding-left: 1rem;
+  border-left: 1px solid var(--glass-border);
+}
+
+.hero-proof strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.hero-panel {
+  position: relative;
+  padding: 2rem;
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(145deg, rgba(99, 102, 241, 0.16), rgba(255, 255, 255, 0.025) 55%, rgba(168, 85, 247, 0.12));
+  overflow: hidden;
+}
+
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  top: -70px;
+  right: -60px;
+  border: 1px solid rgba(165, 180, 252, 0.24);
+  border-radius: 50%;
+  box-shadow: 0 0 0 24px rgba(165, 180, 252, 0.04), 0 0 0 48px rgba(165, 180, 252, 0.025);
+}
+
+.hero-panel-top,
+.hero-panel-index,
+.hero-panel h2,
+.hero-panel-copy,
+.hero-panel-tags,
+.hero-panel-line {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-panel-top {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #c4b5fd;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #86efac;
+  box-shadow: 0 0 0 5px rgba(134, 239, 172, 0.12);
+}
+
+.hero-panel-line {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 1.5rem;
+  background: var(--glass-border);
+}
+
+.hero-panel-index {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero-panel h2 {
+  max-width: 390px;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.08;
+  margin-bottom: 1rem;
+}
+
+.hero-panel-copy {
+  max-width: 390px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.hero-panel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.hero-panel-tags span {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  color: #c4b5fd;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 /* Buttons */
 .cta-group {
   display: flex;
   gap: 1.5rem;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .btn {
@@ -186,6 +336,10 @@ nav {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.btn span {
+  margin-left: 0.45rem;
 }
 
 .btn-primary {
@@ -264,8 +418,23 @@ nav {
 /* Portfolio */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 3rem;
+}
+
+.portfolio-card {
+  grid-column: span 6;
+}
+
+.portfolio-card-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+}
+
+.portfolio-card-featured .card-image {
+  height: 100%;
+  min-height: 300px;
 }
 
 .glass-card {
@@ -278,7 +447,7 @@ nav {
 }
 
 .glass-card:hover {
-  transform: translateY(-15px);
+  transform: translateY(-8px);
   border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
@@ -316,6 +485,10 @@ nav {
   background: linear-gradient(135deg, #1e293b, #3b82f6);
 }
 
+.bupot-img {
+  background: linear-gradient(145deg, #111827 0%, #3730a3 48%, #7c3aed 100%);
+}
+
 .project-2-img {
   background: linear-gradient(135deg, #0f172a, #10b981);
 }
@@ -330,7 +503,16 @@ nav {
 
 .card-content h3 {
   font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-number {
+  color: #a5b4fc;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
 .card-content p {
@@ -396,6 +578,24 @@ footer {
   .section {
       padding: 80px 20px;
   }
+
+  .hero {
+      min-height: auto;
+      padding: 8rem 1.25rem 5rem;
+  }
+
+  .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+  }
+
+  .hero-content {
+      text-align: left;
+  }
+
+  .hero-panel {
+      min-height: 340px;
+  }
   
   .card-content {
       padding: 1.5rem;
@@ -405,7 +605,11 @@ footer {
       flex-direction: column;
       width: 100%;
       max-width: 300px;
-      margin: 0 auto;
+      margin: 0;
+  }
+
+  .hero-proof {
+      margin-top: 2.5rem;
   }
 
   .eyebrow {
@@ -418,5 +622,24 @@ footer {
       align-items: stretch;
       margin: 0 auto;
       max-width: 300px;
+  }
+
+  .portfolio-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+  }
+
+  .portfolio-card,
+  .portfolio-card-featured {
+      grid-column: auto;
+  }
+
+  .portfolio-card-featured {
+      display: block;
+  }
+
+  .portfolio-card-featured .card-image {
+      height: 220px;
+      min-height: 0;
   }
 }    

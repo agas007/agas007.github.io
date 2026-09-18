@@ -73,19 +73,45 @@ export default function Home() {
 
       <main>
           <section id="about" className="hero">
-              <div className="hero-content fade-in">
-                  <p className="eyebrow">Finance &amp; tax professional · software builder</p>
-                  <h1>Hi, {"I'm"} <span className="highlight">Agas</span></h1>
-                  <p className="subtitle">I build practical software, automation, and internal systems that make complex work easier to manage.</p>
-                  <div className="cta-group">
-                      <a href="#portfolio" className="btn btn-primary">View My Work</a>
-                      <a href="#contact" className="btn btn-secondary">Get in Touch</a>
-                  </div>
+              <div className="hero-grid">
+                <div className="hero-content fade-in">
+                    <p className="eyebrow">Finance &amp; tax professional · software builder</p>
+                    <h1>Hi, {"I'm"} <span className="highlight">Agas</span></h1>
+                    <p className="subtitle">I build practical software, automation, and internal systems that make complex work easier to manage.</p>
+                    <div className="cta-group">
+                        <a href="#portfolio" className="btn btn-primary">View My Work <span aria-hidden="true">↗</span></a>
+                        <a href="#contact" className="btn btn-secondary">Get in Touch</a>
+                    </div>
+                    <div className="hero-proof">
+                        <span><strong>20+</strong> public repositories</span>
+                        <span><strong>4</strong> active builds</span>
+                    </div>
+                </div>
+
+                <aside className="hero-panel glass-card fade-in">
+                    <div className="hero-panel-top">
+                        <span className="status-dot"></span>
+                        <span>Currently building</span>
+                    </div>
+                    <div className="hero-panel-line"></div>
+                    <p className="hero-panel-index">01 / 03</p>
+                    <h2>Systems that connect numbers, people, and action.</h2>
+                    <p className="hero-panel-copy">From tax operations to internal workflows, I turn messy processes into tools people can actually use.</p>
+                    <div className="hero-panel-tags">
+                        <span>Finance systems</span>
+                        <span>Automation</span>
+                        <span>Web apps</span>
+                    </div>
+                </aside>
               </div>
           </section>
 
           <section id="tech-stack" className="section">
-              <h2 className="section-title fade-in">Tech Stack</h2>
+              <div className="section-heading fade-in">
+                <p className="section-kicker">The tools behind the work</p>
+                <h2 className="section-title">Tech Stack</h2>
+                <p className="section-lede">A practical stack for shipping internal products, polished web experiences, and useful automation.</p>
+              </div>
               <div className="tech-grid fade-in">
                   <div className="tech-card js">TypeScript</div>
                   <div className="tech-card js">JavaScript</div>
@@ -100,8 +126,35 @@ export default function Home() {
           </section>
 
           <section id="portfolio" className="section">
-              <h2 className="section-title fade-in">Portfolio</h2>
+              <div className="section-heading fade-in">
+                <p className="section-kicker">Selected work</p>
+                <h2 className="section-title">Projects with a purpose</h2>
+                <p className="section-lede">A mix of working systems, product concepts, and experiments across finance, operations, and everyday life.</p>
+              </div>
               <div className="portfolio-grid fade-in">
+                  {/* Bupot PANRB Portfolio Card */}
+                  <div className="portfolio-card portfolio-card-featured glass-card">
+                      <div className="card-image bupot-img">
+                           <div className="card-image-overlay">
+                              <span>Internal System</span>
+                           </div>
+                      </div>
+                      <div className="card-content">
+                          <p className="project-number">01 · Featured build</p>
+                          <h3>Bupot PANRB</h3>
+                          <p>A monitoring system for withholding-tax documents, designed to make document status, reporting, and operational follow-up easier to manage.</p>
+                          <div className="tags">
+                              <span>Next.js</span>
+                              <span>TypeScript</span>
+                              <span>Prisma</span>
+                              <span>PostgreSQL</span>
+                          </div>
+                          <div className="button-group">
+                              <a href="https://github.com/agas007/bupot-panrb" target="_blank" className="btn btn-outline" rel="noreferrer">View Repository <span aria-hidden="true">↗</span></a>
+                          </div>
+                      </div>
+                  </div>
+
                   {/* Gym Tracker Portfolio Card */}
                   <div className="portfolio-card glass-card">
                       <div className="card-image gym-tracker-img">
@@ -110,6 +163,7 @@ export default function Home() {
                            </div>
                       </div>
                       <div className="card-content">
+                          <p className="project-number">02 · Product concept</p>
                           <h3>Gym Tracker</h3>
                           <p>A role-based fitness management concept for gym owners, instructors, and students, with workout planning, progress tracking, and dashboard views.</p>
                           <div className="tags">
@@ -133,6 +187,7 @@ export default function Home() {
                            </div>
                       </div>
                       <div className="card-content">
+                          <p className="project-number">03 · Workflow concept</p>
                           <h3>Perjalanan Dinas</h3>
                           <p>An internal workflow concept for official travel requests, approvals, notifications, reporting, and administrative oversight.</p>
                           <div className="tags">
@@ -157,6 +212,7 @@ export default function Home() {
                            </div>
                       </div>
                       <div className="card-content">
+                          <p className="project-number">04 · Client experience</p>
                           <h3>TAT & Partners</h3>
                           <p>A corporate web experience for a tax consulting firm, presenting services, academy programs, partners, clients, and a task-management portal concept.</p>
                           <div className="tags">
@@ -177,7 +233,10 @@ export default function Home() {
           </section>
 
           <section id="contact" className="section">
-              <h2 className="section-title fade-in">Get In Touch</h2>
+              <div className="section-heading fade-in">
+                <p className="section-kicker">Have something in mind?</p>
+                <h2 className="section-title">Let&apos;s make it useful.</h2>
+              </div>
               <div className="contact-card glass-card fade-in">
                   <p>Have a project involving finance workflows, tax operations, internal tools, or web applications? Let&apos;s connect.</p>
                   <div className="contact-actions">
