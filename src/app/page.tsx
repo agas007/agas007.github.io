@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     // Scroll Effects for Navbar
     const navbar = document.querySelector('.glass-nav');
@@ -62,11 +64,20 @@ export default function Home() {
       <header className="glass-nav">
           <nav>
               <div className="logo"><Link href="/">Agas</Link></div>
-              <ul className="nav-links">
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#tech-stack">Tech Stack</a></li>
-                  <li><a href="#portfolio">Portfolio</a></li>
-                  <li><a href="#contact">Contact</a></li>
+              <button
+                className="menu-toggle"
+                type="button"
+                aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+                aria-expanded={menuOpen}
+                onClick={() => setMenuOpen((open) => !open)}
+              >
+                <span></span><span></span><span></span>
+              </button>
+              <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+                  <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
+                  <li><a href="#tech-stack" onClick={() => setMenuOpen(false)}>Tech Stack</a></li>
+                  <li><a href="#portfolio" onClick={() => setMenuOpen(false)}>Portfolio</a></li>
+                  <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
               </ul>
           </nav>
       </header>
@@ -75,32 +86,32 @@ export default function Home() {
           <section id="about" className="hero">
               <div className="hero-grid">
                 <div className="hero-content fade-in">
-                    <p className="eyebrow">Finance &amp; tax professional · software builder</p>
+                    <p className="eyebrow">Finance &amp; tax operations · software builder</p>
                     <h1>Hi, {"I'm"} <span className="highlight">Agas</span></h1>
-                    <p className="subtitle">I build practical software, automation, and internal systems that make complex work easier to manage.</p>
+                    <p className="subtitle">I turn complex finance and tax workflows into practical systems, automations, and digital experiences.</p>
                     <div className="cta-group">
                         <a href="#portfolio" className="btn btn-primary">View My Work <span aria-hidden="true">↗</span></a>
                         <a href="#contact" className="btn btn-secondary">Get in Touch</a>
                     </div>
                     <div className="hero-proof">
+                        <span><strong>3</strong> featured systems</span>
                         <span><strong>20+</strong> public repositories</span>
-                        <span><strong>4</strong> active builds</span>
                     </div>
                 </div>
 
                 <aside className="hero-panel glass-card fade-in">
                     <div className="hero-panel-top">
                         <span className="status-dot"></span>
-                        <span>Current focus</span>
+                        <span>Building for finance &amp; operations</span>
                     </div>
                     <div className="hero-panel-line"></div>
-                    <p className="hero-panel-index">Open-source collaboration</p>
-                    <h2>Useful tools beyond the browser.</h2>
-                    <p className="hero-panel-copy">From tax operations to cross-platform desktop apps, I enjoy turning practical ideas into products people can actually use.</p>
+                    <p className="hero-panel-index">Current focus</p>
+                    <h2>Useful tools for work that matters.</h2>
+                    <p className="hero-panel-copy">From tax operations to cross-platform desktop apps, I build software that makes everyday work clearer, faster, and easier to follow through.</p>
                     <div className="hero-panel-tags">
+                        <span>Finance ops</span>
+                        <span>Tax workflows</span>
                         <span>Internal systems</span>
-                        <span>Open source</span>
-                        <span>Cross-platform</span>
                     </div>
                 </aside>
               </div>
@@ -110,7 +121,7 @@ export default function Home() {
               <div className="section-heading fade-in">
                 <p className="section-kicker">The tools behind the work</p>
                 <h2 className="section-title">Tech Stack</h2>
-                <p className="section-lede">A practical stack for shipping internal products, polished web experiences, and useful automation.</p>
+                <p className="section-lede">The tools I use to turn messy workflows into clear, usable products across web, desktop, and internal operations.</p>
               </div>
               <div className="tech-grid fade-in">
                   <div className="tech-card js">TypeScript</div>
@@ -129,20 +140,21 @@ export default function Home() {
               <div className="section-heading fade-in">
                 <p className="section-kicker">Selected work</p>
                 <h2 className="section-title">Projects with a purpose</h2>
-                <p className="section-lede">A mix of working systems, product concepts, and experiments across finance, operations, and everyday life.</p>
+                <p className="section-lede">A mix of client experiences, internal systems, and open-source experiments — each built around a real workflow or practical problem.</p>
               </div>
               <div className="portfolio-grid fade-in">
                   {/* TAT & Partners Portfolio Card */}
                   <div className="portfolio-card portfolio-card-featured glass-card">
                       <div className="card-image tat-partners-img">
                            <div className="card-image-overlay">
-                              <span>Corporate Web</span>
+                              <span>Interactive prototype</span>
                            </div>
                       </div>
                       <div className="card-content">
                           <p className="project-number">01 · Client experience</p>
                           <h3>TAT &amp; Partners</h3>
-                          <p>A corporate web experience for a tax consulting firm, presenting services, academy programs, partners, clients, and a task-management portal concept.</p>
+                          <p>A corporate web experience for a tax consulting firm, bringing services, academy programs, partner profiles, and a portal concept into one clear client journey.</p>
+                          <p className="project-meta"><strong>Role:</strong> Product design · Frontend build</p>
                           <div className="tags">
                               <span>Next.js</span>
                               <span>React</span>
@@ -150,7 +162,7 @@ export default function Home() {
                               <span>UI/UX</span>
                           </div>
                           <div className="button-group">
-                              <a href="/tat-webpage" target="_blank" className="btn btn-outline" rel="noreferrer">Open Application</a>
+                              <a href="/tat-webpage" target="_blank" className="btn btn-outline" rel="noreferrer" aria-label="Open TAT and Partners interactive prototype">Open Demo <span aria-hidden="true">↗</span></a>
                               <a href="https://github.com/agas007/tat-webpage" target="_blank" className="btn btn-outline" rel="noreferrer">View Repository <span aria-hidden="true">↗</span></a>
                           </div>
                       </div>
@@ -160,13 +172,14 @@ export default function Home() {
                   <div className="portfolio-card glass-card">
                       <div className="card-image bupot-img">
                            <div className="card-image-overlay">
-                              <span>Internal System</span>
+                              <span>Internal system</span>
                            </div>
                       </div>
                       <div className="card-content">
                           <p className="project-number">02 · Operations system</p>
                           <h3>Bupot PANRB</h3>
-                          <p>A monitoring system for withholding-tax documents, designed to make document status, reporting, and operational follow-up easier to manage.</p>
+                          <p>A monitoring system for withholding-tax documents, designed to make status, reporting readiness, and operational follow-up easier to manage.</p>
+                          <p className="project-meta"><strong>Focus:</strong> Tax operations · Workflow visibility</p>
                           <div className="tags">
                               <span>Next.js</span>
                               <span>TypeScript</span>
@@ -183,13 +196,14 @@ export default function Home() {
                   <div className="portfolio-card glass-card">
                       <div className="card-image whatsapp-img">
                            <div className="card-image-overlay">
-                               <span>Open-source desktop</span>
+                               <span>Open source</span>
                            </div>
                       </div>
                       <div className="card-content">
                           <p className="project-number">03 · Cross-platform collaboration</p>
                           <h3>WhatsApp Desk</h3>
                           <p>A lightweight desktop client for WhatsApp Web, built with Go and native OS web engines across macOS, Windows, and Linux.</p>
+                          <p className="project-meta"><strong>Focus:</strong> Cross-platform desktop · Open-source collaboration</p>
                           <div className="tags">
                               <span>Go</span>
                               <span>WebKit</span>
@@ -210,7 +224,7 @@ export default function Home() {
                 <h2 className="section-title">Let&apos;s make it useful.</h2>
               </div>
               <div className="contact-card glass-card fade-in">
-                  <p>Have a project involving finance workflows, tax operations, internal tools, or web applications? Let&apos;s connect.</p>
+                  <p>Have a project involving finance workflows, tax operations, internal tools, or web applications? I&apos;m open to useful collaborations and thoughtful product work.</p>
                   <div className="contact-actions">
                       <a href="mailto:agastyaarnanda@gmail.com" className="btn btn-primary">Email Me</a>
                       <a href="https://www.linkedin.com/in/agastyaarnanda/" className="btn btn-secondary" target="_blank" rel="noreferrer">LinkedIn</a>

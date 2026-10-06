@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: "Agas | Finance, Tax & Software",
   description:
     "Agastya Arnanda Primawan — finance and tax professional building practical software, automation, and internal systems.",
-  metadataBase: new URL("https://agas007.github.io"),
+  metadataBase: new URL("https://agas.my.id"),
   openGraph: {
     title: "Agas | Finance, Tax & Software",
     description:
       "Finance and tax professional building practical software, automation, and internal systems.",
-    url: "https://agas007.github.io",
+    url: "https://agas.my.id",
     siteName: "Agas",
     type: "website",
   },
